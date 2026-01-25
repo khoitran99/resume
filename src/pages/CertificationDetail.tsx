@@ -56,11 +56,12 @@ const CertificationDetail: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="w-full md:w-1/3 bg-white p-4 rounded-2xl shadow-sm border border-slate-100"
             >
-              <div className="aspect-[4/3] bg-slate-50 rounded-xl overflow-hidden relative flex items-center justify-center">
+              <div className="aspect-4/3 bg-slate-50 rounded-xl overflow-hidden relative flex items-center justify-center">
                 {/* Image fallback/display */}
                 <img
                   src={cert.image}
                   alt={cert.title}
+                  loading="lazy"
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =

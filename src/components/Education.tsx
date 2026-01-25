@@ -74,7 +74,7 @@ const Education: React.FC = () => {
                 </h3>
               </div>
 
-              <ul className="space-y-4 flex-grow">
+              <ul className="space-y-4 grow">
                 {certifications.map((cert) => (
                   <li key={cert.id}>
                     <Link
