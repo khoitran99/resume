@@ -90,15 +90,23 @@ const CoreStrengths: React.FC = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:border-primary-200 transition-all duration-300 group cursor-default"
+                whileHover={{
+                  y: -10,
+                  boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)",
+                  borderColor: "rgba(14, 165, 233, 0.4)", // text-primary-500 approx
+                }}
+                className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 group cursor-pointer relative overflow-hidden"
               >
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:border-primary-100 group-hover:bg-primary-50 transition-all">
+                {/* Decorative Glowing Orb on Hover */}
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-primary-300 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300 relative z-10">
                   {strength.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 relative z-10">
                   {strength.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed relative z-10">
                   {strength.description}
                 </p>
               </motion.div>
