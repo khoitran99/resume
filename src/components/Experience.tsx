@@ -9,8 +9,11 @@ const Experience: React.FC = () => {
   /* Removed unused scroll logic */
 
   return (
-    <section ref={ref} className="py-24 bg-slate-50 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section
+      ref={ref}
+      className="py-24 bg-transparent overflow-hidden relative"
+    >
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +52,7 @@ const Experience: React.FC = () => {
                   {/* Content Card */}
                   <div className="w-full md:w-[calc(50%-2rem)]">
                     <Link to={`/project/${exp.id}`} className="block">
-                      <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300 relative group-hover:bg-slate-50/50">
+                      <div className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300 relative group-hover:bg-white/90">
                         {/* Mobile Timeline Dot/Line */}
                         <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
                         <div className="md:hidden absolute -left-[27px] top-10 bottom-[-50px] w-px bg-slate-200 last:hidden"></div>

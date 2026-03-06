@@ -67,7 +67,7 @@ const itemVariants = {
 
 const CoreStrengths: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-transparent relative z-10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <motion.h2
@@ -90,7 +90,7 @@ const CoreStrengths: React.FC = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group cursor-default"
+                className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:border-primary-200 transition-all duration-300 group cursor-default"
               >
                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:border-primary-100 group-hover:bg-primary-50 transition-all">
                   {strength.icon}

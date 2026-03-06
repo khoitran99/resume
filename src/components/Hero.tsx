@@ -1,12 +1,15 @@
 import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, ArrowRight } from "lucide-react";
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Globe,
+  ArrowRight,
+} from "lucide-react";
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -15,61 +18,33 @@ const Hero: React.FC = () => {
     offset: ["start start", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]); // Reduced parallax distance to prevent issues
-
-  // Mouse Parallax Logic
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig); // Fixed: using springY derived from mouseY
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    mouseX.set(clientX / innerWidth - 0.5);
-    mouseY.set(clientY / innerHeight - 0.5);
-  };
 
   return (
     <section
       ref={ref}
-      onMouseMove={handleMouseMove}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-slate-50"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-transparent"
     >
-      {/* Dynamic Background Elements */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 -z-10 overflow-hidden"
-      >
-        <motion.div
-          style={{
-            x: useTransform(springX, (val) => val * 50),
-            y: useTransform(springY, (val) => val * 50),
-          }}
-          className="absolute top-20 left-20 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-        />
-        <motion.div
-          style={{
-            x: useTransform(springX, (val) => val * -50),
-            y: useTransform(springY, (val) => val * -50),
-          }}
-          className="absolute top-40 right-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-        />
-        <motion.div
-          style={{
-            x: useTransform(springX, (val) => val * 30),
-            y: useTransform(springY, (val) => val * -30),
-          }}
-          className="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-        />
-      </motion.div>
-
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div style={{ y: textY }}>
+          <motion.div
+            style={{ y: textY }}
+            className="flex flex-col items-center"
+          >
+            {/* Avatar Profile */}
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 z-20"
+            >
+              <img
+                src="/profile/AAEC2AC8-13D7-4BD3-BEA8-B58B1EDF3D05_1_105_c.jpeg"
+                alt="Khoi Tran"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
             {/* Animated Text Reveal */}
             <div className="overflow-hidden mb-4 flex justify-center">
               <motion.h2
@@ -82,7 +57,7 @@ const Hero: React.FC = () => {
               </motion.h2>
             </div>
 
-            <div className="overflow-hidden mb-6 flex justify-center">
+            <div className="overflow-hidden mb-6 flex justify-center h-24 md:h-32">
               <motion.h1
                 initial={{ y: "150%" }}
                 animate={{ y: 0 }}
@@ -91,9 +66,27 @@ const Hero: React.FC = () => {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 pb-2 tracking-tight"
+                className="text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight"
               >
-                Trần Văn Khôi
+                <TypeAnimation
+                  sequence={[
+                    "Trần Văn Khôi",
+                    2000,
+                    "Khôi Trần",
+                    2000,
+                    "Software Engineer",
+                    2000,
+                    "Marathon Runner",
+                    2000,
+                    "Bodybuilder",
+                    2000,
+                    "Tech Savvy",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
               </motion.h1>
             </div>
 
@@ -103,8 +96,8 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
             >
-              Front-End Architecture • Cloud-Native Systems • Scalable Web
-              Platforms
+              Software Engineer & Team Leader | AWS Solutions Architect (Pro) |
+              PMP | Cloud Architecture & Scalable Systems
             </motion.p>
 
             {/* Contact Info - Now inside the parallax wrapper */}
@@ -112,7 +105,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-6 md:gap-8 text-slate-600 mb-12"
+              className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-slate-600 mb-12 max-w-3xl mx-auto"
             >
               {[
                 {
@@ -123,15 +116,25 @@ const Hero: React.FC = () => {
                 { href: "tel:0965611359", icon: Phone, label: "0965 611 359" },
                 { icon: MapPin, label: "Hanoi, Vietnam" },
                 {
-                  href: "https://www.linkedin.com/",
+                  href: "https://www.linkedin.com/in/khoi-tran-32a1b4206/",
                   icon: Linkedin,
                   label: "LinkedIn",
+                },
+                {
+                  href: "https://github.com/khoitran99",
+                  icon: Github,
+                  label: "GitHub",
+                },
+                {
+                  href: "https://blog.khoitv.com",
+                  icon: Globe,
+                  label: "Personal Blog",
                 },
               ].map((item, idx) => (
                 <a
                   key={idx}
                   href={item.href}
-                  className="flex items-center gap-2 hover:text-primary-600 transition-colors group cursor-pointer"
+                  className="flex items-center gap-2 hover:text-primary-600 transition-colors group cursor-pointer py-2"
                   target={item.href?.startsWith("http") ? "_blank" : undefined}
                   rel={
                     item.href?.startsWith("http")
@@ -140,7 +143,7 @@ const Hero: React.FC = () => {
                   }
                 >
                   <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span className="relative">
+                  <span className="relative font-medium shadow-sm">
                     {item.label}
                     <span className="absolute left-0 -bottom-1 w-0 h-px bg-primary-600 transition-all group-hover:w-full"></span>
                   </span>
@@ -160,10 +163,10 @@ const Hero: React.FC = () => {
                     .getElementById("summary")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-medium overflow-hidden transition-all hover:pr-10 hover:shadow-lg"
+                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-medium overflow-hidden transition-all hover:pr-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
               >
                 {/* Button Glow Effect */}
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                <div className="absolute inset-0 w-full h-full bg-linear-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
 
                 <span className="relative z-10">View My Work</span>
                 <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform relative z-10" />

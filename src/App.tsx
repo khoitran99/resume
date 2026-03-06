@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Home from "./pages/Home";
+import AbstractBackground3D from "./components/ui/AbstractBackground3D";
 
 // Lazy load detail page
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
@@ -17,15 +18,17 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700">
+      <div className="bg-transparent min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700 relative z-10">
+        <AbstractBackground3D />
+
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-indigo-500 z-50 origin-left"
+          className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-slate-500 to-slate-900 z-50 origin-left"
           style={{ scaleX }}
         />
 
         <Suspense
           fallback={
-            <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+            <div className="min-h-screen bg-transparent flex items-center justify-center">
               Loading...
             </div>
           }

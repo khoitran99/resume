@@ -17,14 +17,14 @@ export const certifications: Certification[] = [
     date: "2024",
     image: "/cert/1761378552628.png", // Placeholder based on directory listing
     description:
-      "The AWS Certified Solutions Architect – Professional is one of the most respected and difficult certifications in the cloud industry. It validates advanced technical skills and experience in designing distributed applications and systems on the AWS platform. Earning this certification demonstrates a comprehensive understanding of designing basic to complex scalable, highly available, and fault-tolerant systems, as well as the ability to select the appropriate AWS services to design and deploy an application based on given requirements.",
+      "The AWS Certified Solutions Architect – Professional is one of the most respected and challenging credentials in the cloud industry. It validates advanced technical skills and experience in designing complex, enterprise-scale, distributed applications and systems on the AWS platform. This certification signifies deep expertise in optimizing system architectures for cost-efficiency, security, performance, and reliability using AWS best practices, alongside demonstrating the ability to automate processes and successfully migrate existing workloads to the cloud.",
     skills: [
-      "Advanced Network Architecture",
-      "Multi-Account Governance & Security",
-      "Cost Optimization Strategies",
-      "High Availability & Disaster Recovery",
-      "Migration Planning",
-      "Serverless Design Patterns",
+      "Enterprise-Scale Cloud Architecture",
+      "Cost, Security & Performance Optimization",
+      "Network Design & Multi-Account Strategy",
+      "High Availability & Disaster Recovery Solutions",
+      "Cloud Migration Strategies & TCO Evaluation",
+      "Automation & Continuous Delivery",
     ],
   },
   {
@@ -34,14 +34,14 @@ export const certifications: Certification[] = [
     date: "2023",
     image: "/cert/1761378770930.png", // Placeholder based on directory listing
     description:
-      "The AWS Certified Developer – Associate showcases proficiency in developing, deploying, and debugging cloud-based applications using AWS. It confirms a deep understanding of core AWS services, basic AWS architecture best practices, and proficiency in developing, deploying, and debugging cloud-based applications using AWS.",
+      "The AWS Certified Developer – Associate demonstrates a strong foundation in cloud-native application development and deep knowledge of core AWS services. It validates proficiency in developing, testing, deploying, and debugging applications within the AWS ecosystem. Earning this certification affirms competence in utilizing AWS APIs, implementing CI/CD workflows, authoring secure code, and effectively deploying serverless and containerized solutions following AWS best practices.",
     skills: [
-      "Cloud-Native Development",
-      "CI/CD with AWS CodePipeline",
-      "Serverless (Lambda, API Gateway)",
-      "DynamoDB Data Modeling",
-      "Containerization (ECS/Docker)",
-      "Security & IAM Best Practices",
+      "Cloud-Native Application Development",
+      "CI/CD Implementation & Deployment Workflows",
+      "Serverless Architecture (Lambda, API Gateway)",
+      "Debugging & Application Troubleshooting",
+      "AWS Security & IAM Best Practices",
+      "Integration of AWS Service APIs & SDKs",
     ],
   },
   {
@@ -51,13 +51,31 @@ export const certifications: Certification[] = [
     date: "2021",
     image: "/cert/490357662_4335658363327962_4927711896490172318_n.jpg", // Placeholder based on directory listing
     description:
-      "An IELTS 7.0 score specifically demonstrates a high level of English proficiency, capable of handling complex academic and professional language. It indicates the ability to communicate effectively in an international environment, understand detailed reasoning, and handle complex language structures with ease.",
+      "An IELTS 7.0 Academic score reflects a high level of operational English proficiency, specifically tailored for demanding academic and professional environments. It confirms the ability to handle complex language structures and detailed reasoning effectively. Achieving this score indicates a strong capacity to communicate clearly across varied international settings, comprehend sophisticated technical and academic texts, and deliver coherent, logical arguments.",
     skills: [
-      "Professional Business Communication",
-      "Technical Documentation Writing",
+      "Advanced Reading & Comprehension",
+      "Complex Academic & Professional Writing",
+      "Fluid Verbal Communication & Presentation",
+      "Accurate Processing of Spoken English",
+      "Detailed Reasoning & Argument Construction",
       "Cross-Cultural Team Collaboration",
-      "Advanced Reading Comprehension",
-      "Fluid Verbal Presentation",
+    ],
+  },
+  {
+    id: "pmi-pmp",
+    title: "Project Management Professional (PMP)",
+    issuer: "Project Management Institute (PMI)",
+    date: "2024",
+    image: "/cert/pmi-pmp-certification.png",
+    description:
+      "The Project Management Professional (PMP) is a globally recognized, prestigious certification that validates advanced project leadership and execution capabilities. It demonstrates deep expertise in managing cross-functional teams, directing comprehensive project lifecycles (across Agile, Waterfall, and hybrid methodologies), and aligning strategic initiatives with core business objectives. Earning this credential confirms a high-level mastery of rigorous global standards in risk management, resource allocation, and delivering measurable organizational value.",
+    skills: [
+      "Strategic Planning & Execution",
+      "Agile & Hybrid Methodologies",
+      "Resource & Timeline Optimization",
+      "Stakeholder Communication & Negotiation",
+      "Proactive Risk Management & Mitigation",
+      "Cross-Functional Team Leadership",
     ],
   },
 ];

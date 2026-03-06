@@ -27,8 +27,8 @@ const itemVariants = {
 
 const Education: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-transparent relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -40,7 +40,7 @@ const Education: React.FC = () => {
             {/* Education */}
             <motion.div
               variants={itemVariants}
-              className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-primary-100 transition-colors h-full"
+              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg hover:shadow-xl hover:border-primary-200 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
@@ -63,7 +63,7 @@ const Education: React.FC = () => {
             {/* Certifications - Now Dynamic */}
             <motion.div
               variants={itemVariants}
-              className="bg-slate-50 p-8 rounded-2xl border border-slate-100 h-full flex flex-col"
+              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
@@ -97,7 +97,7 @@ const Education: React.FC = () => {
             {/* Languages */}
             <motion.div
               variants={itemVariants}
-              className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-primary-100 transition-colors h-full"
+              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg hover:shadow-xl hover:border-primary-200 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
@@ -125,22 +125,73 @@ const Education: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden group"
+            className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-left text-white relative overflow-hidden group"
           >
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-              <div className="absolute top-[-50%] left-[-10%] w-[50%] h-[150%] bg-white transform rotate-12 transition-transform duration-1000 group-hover:rotate-6"></div>
+              <div className="absolute top-[0%] left-[-10%] w-[50%] h-[150%] bg-white transform rotate-12 transition-transform duration-1000 group-hover:rotate-6"></div>
             </div>
 
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                <BookOpen className="w-6 h-6 text-white" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm shrink-0">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold">Career Direction</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Career Direction</h3>
-              <p className="text-primary-100 text-lg mb-8 leading-relaxed">
-                Seeking Senior / Lead Engineer roles at high-engineering-bar
-                companies, where I can own complex systems end-to-end, drive
-                architecture, and mentor engineers.
-              </p>
+
+              <div className="space-y-6 text-primary-50 text-lg leading-relaxed">
+                <p>
+                  As a Software Engineer and AWS Solutions Architect –
+                  Professional with over 5 years of experience, I specialize in
+                  designing, building, and scaling high-performance cloud-native
+                  platforms. My technical expertise bridges modern web
+                  technologies (React, Next.js, Node.js) with robust backend AWS
+                  cloud architecture, focusing heavily on long-term scalability
+                  and maintainability.
+                </p>
+                <p>
+                  Beyond engineering, I am deeply passionate about strategic
+                  project execution and team leadership. Holding a PMP
+                  certification enables me to effectively bridge technical
+                  excellence with structured delivery, mentoring developers, and
+                  continuously improving engineering processes.
+                </p>
+
+                <div className="bg-white/10 rounded-xl p-6 mt-8">
+                  <h4 className="font-semibold text-white mb-4">
+                    What drives my work:
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary-200 rounded-full shrink-0"></div>
+                      <span>Architecting systems that scale reliably</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary-200 rounded-full shrink-0"></div>
+                      <span>Empowering and mentoring engineering teams</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary-200 rounded-full shrink-0"></div>
+                      <span>
+                        Designing structured, efficient engineering processes
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary-200 rounded-full shrink-0"></div>
+                      <span>
+                        Leveraging advanced cloud and AI technologies to drive
+                        measurable impact
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="pt-4 font-medium text-white italic">
+                  I am currently exploring opportunities and collaborations in
+                  cloud architecture, scalable product development, and
+                  AI-driven system integration.
+                </p>
+              </div>
             </div>
           </motion.div>
         </motion.div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Server, Cloud, Terminal } from "lucide-react";
+import { Code, Database, Server, Cloud, Terminal, Bot } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
 
 const technologies = [
@@ -61,6 +61,11 @@ const technologies = [
       "Git",
     ],
   },
+  {
+    category: "AI Collaboration",
+    icon: <Bot className="w-5 h-5" />,
+    skills: ["Cursor", "Antigravity", "Claude", "ChatGPT", "Codex"],
+  },
 ];
 
 const containerVariants = {
@@ -80,7 +85,7 @@ const itemVariants = {
 
 const TechStack: React.FC = () => {
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-transparent relative z-10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

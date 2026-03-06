@@ -22,7 +22,7 @@ const ProjectDetail: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-slate-600">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-transparent text-slate-600">
         <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
         <button
           onClick={() => navigate("/")}
@@ -35,7 +35,7 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700">
+    <div className="bg-transparent min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center">
@@ -111,7 +111,7 @@ const ProjectDetail: React.FC = () => {
               {project.tech.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium shadow-sm"
+                  className="px-4 py-2 bg-white/80 backdrop-blur-md border border-white/60 rounded-lg text-slate-800 font-medium shadow-sm"
                 >
                   {tech}
                 </span>
@@ -124,7 +124,7 @@ const ProjectDetail: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm"
+            className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 border border-white/60 shadow-lg"
           >
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-primary-600" />
@@ -144,7 +144,7 @@ const ProjectDetail: React.FC = () => {
         </div>
       </main>
 
-      <footer className="bg-white py-8 text-center text-slate-500 text-sm border-t border-slate-200">
+      <footer className="bg-white/80 backdrop-blur-md py-8 text-center text-slate-500 text-sm border-t border-white/60">
         <p>
           © {new Date().getFullYear()} Trần Văn Khôi. Built with React, Vite &
           Tailwind CSS.
