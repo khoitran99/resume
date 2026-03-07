@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { ArrowUp, Download } from "lucide-react";
+import { ArrowUp, Download, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import Magnetic from "./Magnetic";
 
+import BackgroundSwitcher from "./BackgroundSwitcher";
+import { useTheme } from "../../context/ThemeContext";
+
 const FloatingActions: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Show "Back to Top" only when scrolled down
   useEffect(() => {
@@ -29,12 +33,43 @@ const FloatingActions: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      {/* Background Switcher Menu */}
+      <BackgroundSwitcher />
+
+      {/* Theme Toggle Button */}
+      <Magnetic>
+        <button
+          onClick={toggleTheme}
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 text-primary-600 border-white/60 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          aria-label="Toggle Theme"
+        >
+          <motion.div
+            initial={false}
+            animate={{ rotate: theme === "dark" ? 360 : 0 }}
+            transition={{ duration: 0.5, ease: "anticipate" }}
+            className="flex items-center justify-center"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
+          </motion.div>
+
+          {/* Tooltip */}
+          <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
+            Toggle Theme
+            <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
+          </div>
+        </button>
+      </Magnetic>
+
       {/* Download Resume Button */}
       <Magnetic>
         <a
           href="#"
           download
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 text-primary-600 border-white/60 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 text-primary-600 border-white/60 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
         >
           <motion.div
             variants={{
