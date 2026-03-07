@@ -82,7 +82,7 @@ const HighwayField: React.FC<HighwayFieldProps> = ({ scrollYProgress }) => {
     return colors;
   }, [packetCount]);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     // 1. Move Data Packets
     if (packetsRef.current) {
       for (let i = 0; i < packetCount; i++) {
