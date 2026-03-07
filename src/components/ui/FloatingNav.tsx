@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import Magnetic from "./Magnetic";
 import {
   Home,
   User,
@@ -45,27 +46,28 @@ const FloatingNav: React.FC = () => {
         const Icon = item.icon;
 
         return (
-          <Link
-            key={item.id}
-            to={item.id}
-            spy={true}
-            smooth={true}
-            duration={500}
-            className={`group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border ${
-              isActive
-                ? "bg-slate-900 text-white border-slate-700 shadow-lg scale-110"
-                : "bg-white/80 text-slate-500 border-white/60 shadow-sm hover:bg-white hover:text-slate-800 hover:scale-105"
-            }`}
-          >
-            <Icon className="w-5 h-5" />
+          <Magnetic key={item.id}>
+            <Link
+              to={item.id}
+              spy={true}
+              smooth={true}
+              duration={500}
+              className={`group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border ${
+                isActive
+                  ? "bg-slate-900 text-white border-slate-700 shadow-lg scale-110"
+                  : "bg-white/80 text-slate-500 border-white/60 shadow-sm hover:bg-white hover:text-slate-800 hover:scale-105"
+              }`}
+            >
+              <Icon className="w-5 h-5" />
 
-            {/* Tooltip */}
-            <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
-              {item.label}
-              {/* Tooltip Chevron */}
-              <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
-            </div>
-          </Link>
+              {/* Tooltip */}
+              <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
+                {item.label}
+                {/* Tooltip Chevron */}
+                <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
+              </div>
+            </Link>
+          </Magnetic>
         );
       })}
     </div>

@@ -50,7 +50,10 @@ const ProjectDetail: React.FC = () => {
       </nav>
 
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          layoutId={`project-container-${project.id}`}
+          className="container mx-auto px-4 max-w-4xl bg-white/40 backdrop-blur-3xl rounded-3xl p-8 border border-white/60 shadow-xl"
+        >
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,7 +144,7 @@ const ProjectDetail: React.FC = () => {
               ))}
             </div>
           </motion.section>
-        </div>
+        </motion.div>
       </main>
 
       <footer className="bg-white/80 backdrop-blur-md py-8 text-center text-slate-500 text-sm border-t border-white/60">

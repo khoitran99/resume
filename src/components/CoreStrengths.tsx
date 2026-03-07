@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Layers, Server, Cloud, Code2, GitMerge, Users } from "lucide-react";
+import MaskedHeading from "./ui/MaskedHeading";
+import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const strengths = [
   {
@@ -67,17 +69,15 @@ const itemVariants = {
 
 const CoreStrengths: React.FC = () => {
   return (
-    <section className="py-24 bg-transparent relative z-10">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-transparent relative z-10 overflow-hidden">
+      <ParallaxBackgroundText text="STRENGTHS" speed={-0.15} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900"
-          >
-            Core Engineering Strengths
-          </motion.h2>
+          <MaskedHeading
+            element="h2"
+            text="Core Engineering Strengths"
+            className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 justify-center w-full"
+          />
 
           <motion.div
             variants={containerVariants}

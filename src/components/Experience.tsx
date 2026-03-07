@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Briefcase, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { experiences } from "../data/experiences";
+import MaskedHeading from "./ui/MaskedHeading";
+import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const Experience: React.FC = () => {
   const ref = useRef(null);
@@ -13,6 +15,7 @@ const Experience: React.FC = () => {
       ref={ref}
       className="py-24 bg-transparent overflow-hidden relative"
     >
+      <ParallaxBackgroundText text="EXPERIENCE" speed={0.1} />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,12 +25,16 @@ const Experience: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-16">
-            <h2 className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2">
-              My Journey
-            </h2>
-            <h3 className="text-3xl font-bold text-slate-900">
-              Professional Experience
-            </h3>
+            <MaskedHeading
+              element="h2"
+              text="My Journey"
+              className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2 justify-center"
+            />
+            <MaskedHeading
+              element="h3"
+              text="Professional Experience"
+              className="text-3xl font-bold text-slate-900 justify-center"
+            />
           </div>
 
           <div className="space-y-12 relative">
@@ -52,7 +59,10 @@ const Experience: React.FC = () => {
                   {/* Content Card */}
                   <div className="w-full md:w-[calc(50%-2rem)]">
                     <Link to={`/project/${exp.id}`} className="block">
-                      <div className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300 relative group-hover:bg-white/90">
+                      <motion.div
+                        layoutId={`project-container-${exp.id}`}
+                        className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300 relative group-hover:bg-white/90"
+                      >
                         {/* Mobile Timeline Dot/Line */}
                         <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
                         <div className="md:hidden absolute -left-[27px] top-10 bottom-[-50px] w-px bg-slate-200 last:hidden"></div>
@@ -103,7 +113,7 @@ const Experience: React.FC = () => {
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </motion.div>
                     </Link>
                   </div>
 

@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { certifications } from "../data/certifications";
+import MaskedHeading from "./ui/MaskedHeading";
+import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,6 +30,7 @@ const itemVariants = {
 const Education: React.FC = () => {
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
+      <ParallaxBackgroundText text="EDUCATION" speed={-0.1} />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial="hidden"
@@ -76,7 +79,10 @@ const Education: React.FC = () => {
 
               <ul className="space-y-4 grow">
                 {certifications.map((cert) => (
-                  <li key={cert.id}>
+                  <motion.li
+                    key={cert.id}
+                    layoutId={`cert-container-${cert.id}`}
+                  >
                     <Link
                       to={`/certification/${cert.id}`}
                       className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer"
@@ -89,7 +95,7 @@ const Education: React.FC = () => {
                       </div>
                       <ArrowRight className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                     </Link>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
@@ -136,7 +142,11 @@ const Education: React.FC = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm shrink-0">
                   <BookOpen className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold">Career Direction</h3>
+                <MaskedHeading
+                  element="h3"
+                  text="Career Direction"
+                  className="text-3xl font-bold"
+                />
               </div>
 
               <div className="space-y-6 text-primary-50 text-lg leading-relaxed">

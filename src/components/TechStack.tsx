@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Code, Database, Server, Cloud, Terminal, Bot } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
+import MaskedHeading from "./ui/MaskedHeading";
+import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const technologies = [
   {
@@ -85,27 +87,21 @@ const itemVariants = {
 
 const TechStack: React.FC = () => {
   return (
-    <section className="py-24 bg-transparent relative z-10">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-transparent relative z-10 overflow-hidden">
+      <ParallaxBackgroundText text="EXPERTISE" speed={0.15} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-3"
-            >
-              Technical Expertise
-            </motion.h2>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold text-slate-900"
-            >
-              Technology Stack
-            </motion.h3>
+            <MaskedHeading
+              element="h2"
+              text="Technical Expertise"
+              className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-3 justify-center"
+            />
+            <MaskedHeading
+              element="h3"
+              text="Technology Stack"
+              className="text-3xl md:text-4xl font-bold text-slate-900 justify-center"
+            />
           </div>
 
           <motion.div

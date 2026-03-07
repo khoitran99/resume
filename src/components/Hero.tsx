@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import Magnetic from "./ui/Magnetic";
 import {
   Mail,
   Phone,
@@ -131,23 +132,43 @@ const Hero: React.FC = () => {
                   label: "Personal Blog",
                 },
               ].map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.href}
-                  className="flex items-center gap-2 hover:text-primary-600 transition-colors group cursor-pointer py-2"
-                  target={item.href?.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    item.href?.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span className="relative font-medium shadow-sm">
-                    {item.label}
-                    <span className="absolute left-0 -bottom-1 w-0 h-px bg-primary-600 transition-all group-hover:w-full"></span>
-                  </span>
-                </a>
+                <Magnetic key={idx} strength={10}>
+                  <a
+                    href={item.href}
+                    className="flex items-center gap-2 hover:text-primary-600 transition-colors group cursor-pointer py-2"
+                    target={
+                      item.href?.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      item.href?.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                  >
+                    {item.label === "GitHub" ? (
+                      <motion.div
+                        variants={{
+                          initial: { rotate: 0 },
+                          hover: {
+                            rotate: [0, -15, 10, -10, 5, 0],
+                            transition: { duration: 0.5, ease: "easeInOut" },
+                          },
+                        }}
+                        initial="initial"
+                        whileHover="hover"
+                        className="flex items-center justify-center p-1 -m-1"
+                      >
+                        <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                      </motion.div>
+                    ) : (
+                      <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    )}
+                    <span className="relative font-medium shadow-sm">
+                      {item.label}
+                      <span className="absolute left-0 -bottom-1 w-0 h-px bg-primary-600 transition-all group-hover:w-full"></span>
+                    </span>
+                  </a>
+                </Magnetic>
               ))}
             </motion.div>
 
@@ -157,20 +178,22 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("summary")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-medium overflow-hidden transition-all hover:pr-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
-              >
-                {/* Button Glow Effect */}
-                <div className="absolute inset-0 w-full h-full bg-linear-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+              <Magnetic strength={20}>
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("summary")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-medium overflow-hidden transition-all hover:pr-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+                >
+                  {/* Button Glow Effect */}
+                  <div className="absolute inset-0 w-full h-full bg-linear-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
 
-                <span className="relative z-10">View My Work</span>
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform relative z-10" />
-              </button>
+                  <span className="relative z-10">View My Work</span>
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform relative z-10" />
+                </button>
+              </Magnetic>
             </motion.div>
           </motion.div>
         </div>

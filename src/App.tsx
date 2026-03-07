@@ -1,12 +1,31 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { motion, useScroll, useSpring } from "framer-motion";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import AbstractBackground3D from "./components/ui/AbstractBackground3D";
+import CustomCursor from "./components/ui/CustomCursor";
 
-// Lazy load detail page
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-const CertificationDetail = lazy(() => import("./pages/CertificationDetail"));
+// Static imports for Framer Motion layoutId transitions (lazy loading breaks layout calculations)
+import ProjectDetail from "./pages/ProjectDetail";
+import CertificationDetail from "./pages/CertificationDetail";
+
+function AppRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route path="/certification/:id" element={<CertificationDetail />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -19,29 +38,15 @@ function App() {
   return (
     <Router>
       <div className="bg-transparent min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700 relative z-10">
-        <AbstractBackground3D />
+        <CustomCursor />
+        <AbstractBackground3D scrollYProgress={scrollYProgress} />
 
         <motion.div
           className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-slate-500 to-slate-900 z-50 origin-left"
           style={{ scaleX }}
         />
 
-        <Suspense
-          fallback={
-            <div className="min-h-screen bg-transparent flex items-center justify-center">
-              Loading...
-            </div>
-          }
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
-            <Route
-              path="/certification/:id"
-              element={<CertificationDetail />}
-            />
-          </Routes>
-        </Suspense>
+        <AppRoutes />
       </div>
     </Router>
   );

@@ -49,7 +49,10 @@ const CertificationDetail: React.FC = () => {
       </nav>
 
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          layoutId={`cert-container-${cert.id}`}
+          className="container mx-auto px-4 max-w-4xl bg-white/40 backdrop-blur-3xl rounded-3xl p-8 border border-white/60 shadow-xl"
+        >
           {/* Header Section */}
           <div className="flex flex-col items-center gap-8 mb-12">
             <motion.div
@@ -138,7 +141,7 @@ const CertificationDetail: React.FC = () => {
               ))}
             </div>
           </motion.section>
-        </div>
+        </motion.div>
       </main>
 
       {/* Image Modal */}
