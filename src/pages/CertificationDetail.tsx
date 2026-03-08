@@ -22,7 +22,7 @@ const CertificationDetail: React.FC = () => {
 
   if (!cert) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-transparent text-slate-600">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-transparent text-slate-600 dark:text-slate-400">
         <h2 className="text-2xl font-bold mb-4">Certification Not Found</h2>
         <button
           onClick={() => navigate("/")}
@@ -35,12 +35,12 @@ const CertificationDetail: React.FC = () => {
   }
 
   return (
-    <div className="bg-transparent min-h-screen text-slate-900">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div className="bg-transparent min-h-screen text-slate-900 dark:text-slate-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center">
           <Link
             to="/"
-            className="flex items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors font-medium group"
+            className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-primary-600 transition-colors font-medium group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Portfolio
@@ -51,17 +51,17 @@ const CertificationDetail: React.FC = () => {
       <main className="pt-24 pb-20">
         <motion.div
           layoutId={`cert-container-${cert.id}`}
-          className="container mx-auto px-4 max-w-4xl bg-white/40 backdrop-blur-3xl rounded-3xl p-8 border border-white/60 shadow-xl"
+          className="container mx-auto px-4 max-w-4xl bg-white/40 backdrop-blur-3xl rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl"
         >
           {/* Header Section */}
           <div className="flex flex-col items-center gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="w-full max-w-3xl bg-white/80 backdrop-blur-xl p-4 rounded-2xl shadow-lg border border-white/60 cursor-pointer transition-transform hover:scale-[1.02]"
+              className="w-full max-w-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-4 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 cursor-pointer transition-transform hover:scale-[1.02]"
               onClick={() => setIsModalOpen(true)}
             >
-              <div className="aspect-4/3 bg-slate-50 rounded-xl overflow-hidden relative flex items-center justify-center">
+              <div className="aspect-4/3 bg-slate-50 dark:bg-slate-800/50 rounded-xl overflow-hidden relative flex items-center justify-center">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -84,16 +84,16 @@ const CertificationDetail: React.FC = () => {
                 <Award className="w-4 h-4" />
                 <span>Professional Certification</span>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
                 {cert.title}
               </h1>
 
-              <div className="flex flex-wrap justify-center gap-4 text-slate-600 mb-6">
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/60 shadow-sm text-sm">
+              <div className="flex flex-wrap justify-center gap-4 text-slate-600 dark:text-slate-400 mb-6">
+                <div className="flex items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/60 dark:border-slate-800 shadow-sm text-sm">
                   <ShieldCheck className="w-4 h-4 text-primary-500" />
                   <span className="font-medium">{cert.issuer}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/60 shadow-sm text-sm">
+                <div className="flex items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/60 dark:border-slate-800 shadow-sm text-sm">
                   <Calendar className="w-4 h-4 text-primary-500" />
                   <span className="font-medium">Issued: {cert.date}</span>
                 </div>
@@ -108,11 +108,11 @@ const CertificationDetail: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold text-slate-800 mb-4 text-center md:text-left">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center md:text-left">
               Professional Overview
             </h2>
-            <div className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg">
-              <p className="text-lg text-slate-600 leading-relaxed">
+            <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg">
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                 {cert.description}
               </p>
             </div>
@@ -124,19 +124,19 @@ const CertificationDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center md:text-left">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 text-center md:text-left">
               Validated Skills & Knowledge
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {cert.skills.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-white/80 backdrop-blur-xl p-4 rounded-xl border border-white/60 shadow-md flex items-center gap-3 hover:border-primary-200 hover:shadow-lg transition-all"
+                  className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-4 rounded-xl border border-white/60 dark:border-slate-800 shadow-md flex items-center gap-3 hover:border-primary-200 dark:hover:border-primary-500/50 hover:shadow-lg transition-all"
                 >
-                  <div className="w-8 h-8 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 shrink-0">
                     <CheckCircle className="w-4 h-4" />
                   </div>
-                  <span className="font-medium text-slate-700">{skill}</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{skill}</span>
                 </div>
               ))}
             </div>

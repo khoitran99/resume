@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArrowUp, Download, Moon, Sun } from "lucide-react";
+import { ArrowUp, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import Magnetic from "./Magnetic";
 
@@ -40,7 +40,7 @@ const FloatingActions: React.FC = () => {
       <Magnetic>
         <button
           onClick={toggleTheme}
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 text-primary-600 border-white/60 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
           aria-label="Toggle Theme"
         >
           <motion.div
@@ -65,11 +65,12 @@ const FloatingActions: React.FC = () => {
       </Magnetic>
 
       {/* Download Resume Button */}
+      {/* 
       <Magnetic>
         <a
           href="#"
           download
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 text-primary-600 border-white/60 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
         >
           <motion.div
             variants={{
@@ -86,14 +87,13 @@ const FloatingActions: React.FC = () => {
             <Download className="w-5 h-5" />
           </motion.div>
 
-          {/* Tooltip */}
           <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
             Download My Resume
-            {/* Tooltip Chevron */}
             <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
           </div>
         </a>
       </Magnetic>
+      */}
 
       {/* Back to Top Button */}
       {isVisible && (

@@ -2,15 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import Magnetic from "./ui/Magnetic";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Github,
-  Globe,
-  ArrowRight,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -95,7 +87,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
             >
               Software Engineer & Team Leader | AWS Solutions Architect (Pro) |
               PMP | Cloud Architecture & Scalable Systems
@@ -106,7 +98,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-slate-600 mb-12 max-w-3xl mx-auto"
+              className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto"
             >
               {[
                 {
@@ -170,30 +162,6 @@ const Hero: React.FC = () => {
                   </a>
                 </Magnetic>
               ))}
-            </motion.div>
-
-            {/* Magnetic Button Wrapper */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Magnetic strength={20}>
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("summary")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-medium overflow-hidden transition-all hover:pr-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
-                >
-                  {/* Button Glow Effect */}
-                  <div className="absolute inset-0 w-full h-full bg-linear-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-
-                  <span className="relative z-10">View My Work</span>
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform relative z-10" />
-                </button>
-              </Magnetic>
             </motion.div>
           </motion.div>
         </div>

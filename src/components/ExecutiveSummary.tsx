@@ -20,22 +20,22 @@ const ExecutiveSummary: React.FC = () => {
             <div className="h-px bg-slate-200 flex-1"></div>
           </div>
 
-          <p className="text-xl md:text-2xl leading-relaxed text-slate-700 text-center font-light">
+          <p className="text-xl md:text-2xl leading-relaxed text-slate-700 dark:text-slate-300 text-center font-light">
             Senior Full-Stack Engineer with{" "}
             <span className="font-semibold text-primary-600">~5 years</span> of
             professional experience delivering enterprise-grade and
             consumer-scale web platforms across{" "}
-            <span className="text-slate-900 font-medium">
+            <span className="text-slate-900 dark:text-slate-100 font-medium">
               FinTech, HealthTech, EdTech, Investment, Construction, E-commerce,
               and Enterprise Systems
             </span>
             .
           </p>
 
-          <div className="mt-8 text-lg text-slate-600 leading-relaxed space-y-4">
+          <div className="mt-8 text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
             <p>
               Strong specialization in{" "}
-              <span className="text-slate-900 font-medium">
+              <span className="text-slate-900 dark:text-slate-100 font-medium">
                 Front-End Architecture
               </span>{" "}
               (React, Next.js, TypeScript) combined with solid backend
@@ -46,7 +46,7 @@ const ExecutiveSummary: React.FC = () => {
             </p>
             <p>
               Comfortable owning the{" "}
-              <span className="text-slate-900 font-medium">full lifecycle</span>
+              <span className="text-slate-900 dark:text-slate-100 font-medium">full lifecycle</span>
               : architecture, development, CI/CD, deployment, performance
               optimization, and long-term maintenance.
             </p>

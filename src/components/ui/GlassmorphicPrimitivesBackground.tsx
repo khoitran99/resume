@@ -174,7 +174,7 @@ const GlassmorphicPrimitivesBackground: React.FC<
   GlassmorphicPrimitivesBackgroundProps
 > = ({ scrollYProgress }) => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 transition-colors duration-700 dark:bg-slate-950">
+    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-slate-800/50 transition-colors duration-700 dark:bg-slate-950">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 45 }}
         gl={{

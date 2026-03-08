@@ -289,7 +289,7 @@ const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = ({
   scrollYProgress,
 }) => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 transition-colors duration-700 dark:bg-slate-950">
+    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-slate-800/50 transition-colors duration-700 dark:bg-slate-950">
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
         {/* Subtle fog to hide particles fading into the distance */}
         <fog attach="fog" args={["#f8fafc", 5, 20]} />

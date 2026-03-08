@@ -45,7 +45,7 @@ function AppContent() {
 
   return (
     <Router>
-      <div className="bg-transparent min-h-screen text-slate-900 selection:bg-primary-100 selection:text-primary-700 relative z-10">
+      <div className="bg-transparent min-h-screen text-slate-900 dark:text-slate-100 selection:bg-primary-100 dark:selection:bg-primary-900 selection:text-primary-700 dark:selection:text-primary-100 relative z-10">
         <CustomCursor />
 
         {/* Render Selected Background */}
@@ -59,7 +59,7 @@ function AppContent() {
           <NeuralNetworkBackground scrollYProgress={scrollYProgress} />
         )}
         {background === "none" && (
-          <div className="fixed inset-0 z-0 bg-slate-50 transition-colors duration-700 dark:bg-slate-950 pointer-events-none" />
+          <div className="fixed inset-0 z-0 bg-slate-50 dark:bg-slate-800/50 transition-colors duration-700 dark:bg-slate-950 pointer-events-none" />
         )}
 
         <motion.div

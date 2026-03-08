@@ -76,7 +76,7 @@ const CoreStrengths: React.FC = () => {
           <MaskedHeading
             element="h2"
             text="Core Engineering Strengths"
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 justify-center w-full"
+            className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-slate-100 justify-center w-full"
           />
 
           <motion.div
@@ -95,18 +95,18 @@ const CoreStrengths: React.FC = () => {
                   boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)",
                   borderColor: "rgba(14, 165, 233, 0.4)", // text-primary-500 approx
                 }}
-                className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 group cursor-pointer relative overflow-hidden"
+                className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-slate-500/20 group cursor-pointer relative overflow-hidden"
               >
                 {/* Decorative Glowing Orb on Hover */}
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-primary-300 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
 
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300 relative z-10">
+                <div className="w-14 h-14 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300 relative z-10">
                   {strength.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3 relative z-10">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3 relative z-10">
                   {strength.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed relative z-10">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
                   {strength.description}
                 </p>
               </motion.div>

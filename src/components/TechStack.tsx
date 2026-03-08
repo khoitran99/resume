@@ -100,7 +100,7 @@ const TechStack: React.FC = () => {
             <MaskedHeading
               element="h3"
               text="Technology Stack"
-              className="text-3xl md:text-4xl font-bold text-slate-900 justify-center"
+              className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 justify-center"
             />
           </div>
 
@@ -115,10 +115,10 @@ const TechStack: React.FC = () => {
               <motion.div key={index} variants={itemVariants}>
                 <SpotlightCard className="h-full p-8 group">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 bg-primary-50 dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
                       {tech.icon}
                     </div>
-                    <h4 className="font-bold text-lg text-slate-800">
+                    <h4 className="font-bold text-lg text-slate-800 dark:text-slate-200">
                       {tech.category}
                     </h4>
                   </div>
@@ -127,7 +127,7 @@ const TechStack: React.FC = () => {
                     {tech.skills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-md text-sm font-medium text-slate-600 group-hover:border-primary-100 group-hover:bg-primary-50/50 transition-colors"
+                        className="px-3 py-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 rounded-md text-sm font-medium text-slate-600 dark:text-slate-400 group-hover:border-primary-100 group-hover:bg-primary-50/50 transition-colors"
                       >
                         {skill}
                       </span>

@@ -43,36 +43,36 @@ const Education: React.FC = () => {
             {/* Education */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg hover:shadow-xl hover:border-primary-200 transition-all duration-300 h-full"
+              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
+                <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <GraduationCap className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">Education</h3>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">Education</h3>
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900">
+                <h4 className="font-bold text-slate-900 dark:text-slate-100">
                   FPT University – Hanoi
                 </h4>
                 <p className="text-primary-600 text-sm font-medium mb-2">
                   Bachelor of Software Engineering
                 </p>
-                <p className="text-slate-500 text-sm">2017 – 2021</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm">2017 – 2021</p>
               </div>
             </motion.div>
 
             {/* Certifications - Now Dynamic */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 transition-all duration-300"
+              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
+                <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <Award className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">
                   Certifications
                 </h3>
               </div>
@@ -85,11 +85,11 @@ const Education: React.FC = () => {
                   >
                     <Link
                       to={`/certification/${cert.id}`}
-                      className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white hover:shadow-sm transition-all cursor-pointer"
+                      className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:shadow-sm transition-all cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary-400 rounded-full group-hover:bg-primary-600 transition-colors"></div>
-                        <span className="text-slate-700 font-medium text-sm group-hover:text-primary-700 transition-colors">
+                        <span className="text-slate-700 dark:text-slate-300 font-medium text-sm group-hover:text-primary-700 transition-colors">
                           {cert.title}
                         </span>
                       </div>
@@ -103,25 +103,25 @@ const Education: React.FC = () => {
             {/* Languages */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 shadow-lg hover:shadow-xl hover:border-primary-200 transition-all duration-300 h-full"
+              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm text-primary-600">
+                <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <Globe className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">Languages</h3>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">Languages</h3>
               </div>
 
               <ul className="space-y-4">
                 <li className="flex items-center justify-between">
-                  <span className="text-slate-700 font-medium">Vietnamese</span>
-                  <span className="text-primary-600 text-sm bg-primary-50 px-2 py-1 rounded">
+                  <span className="text-slate-700 dark:text-slate-300 font-medium">Vietnamese</span>
+                  <span className="text-primary-600 text-sm bg-primary-50 dark:bg-slate-800 px-2 py-1 rounded">
                     Native
                   </span>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-slate-700 font-medium">English</span>
-                  <span className="text-primary-600 text-sm bg-primary-50 px-2 py-1 rounded">
+                  <span className="text-slate-700 dark:text-slate-300 font-medium">English</span>
+                  <span className="text-primary-600 text-sm bg-primary-50 dark:bg-slate-800 px-2 py-1 rounded">
                     Highly Proficient
                   </span>
                 </li>
@@ -134,7 +134,7 @@ const Education: React.FC = () => {
             className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-left text-white relative overflow-hidden group"
           >
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-              <div className="absolute top-[0%] left-[-10%] w-[50%] h-[150%] bg-white transform rotate-12 transition-transform duration-1000 group-hover:rotate-6"></div>
+              <div className="absolute top-[0%] left-[-10%] w-[50%] h-[150%] bg-white dark:bg-slate-900 dark:border-slate-800 transform rotate-12 transition-transform duration-1000 group-hover:rotate-6"></div>
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto">

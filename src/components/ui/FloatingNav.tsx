@@ -55,7 +55,7 @@ const FloatingNav: React.FC = () => {
               className={`group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border ${
                 isActive
                   ? "bg-slate-900 text-white border-slate-700 shadow-lg scale-110"
-                  : "bg-white/80 text-slate-500 border-white/60 shadow-sm hover:bg-white hover:text-slate-800 hover:scale-105"
+                  : "bg-white/80 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 border-white/60 dark:border-slate-800 shadow-sm hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:text-slate-800 dark:text-slate-200 hover:scale-105"
               }`}
             >
               <Icon className="w-5 h-5" />

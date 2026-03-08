@@ -33,7 +33,7 @@ const Experience: React.FC = () => {
             <MaskedHeading
               element="h3"
               text="Professional Experience"
-              className="text-3xl font-bold text-slate-900 justify-center"
+              className="text-3xl font-bold text-slate-900 dark:text-slate-100 justify-center"
             />
           </div>
 
@@ -61,7 +61,7 @@ const Experience: React.FC = () => {
                     <Link to={`/project/${exp.id}`} className="block">
                       <motion.div
                         layoutId={`project-container-${exp.id}`}
-                        className="bg-white/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300 relative group-hover:bg-white/90"
+                        className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 relative group-hover:bg-white/90 dark:group-hover:bg-slate-800/90"
                       >
                         {/* Mobile Timeline Dot/Line */}
                         <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
@@ -75,19 +75,19 @@ const Experience: React.FC = () => {
                           <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
                         </div>
 
-                        <h4 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-primary-600 transition-colors">
+                        <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-1 group-hover:text-primary-600 transition-colors">
                           {exp.role}
                         </h4>
-                        <div className="text-slate-600 font-medium mb-4 flex flex-wrap gap-2 items-center">
+                        <div className="text-slate-600 dark:text-slate-400 font-medium mb-4 flex flex-wrap gap-2 items-center">
                           <span>{exp.company}</span>
                           {exp.team && (
-                            <span className="bg-slate-100 px-2 py-0.5 rounded text-xs text-slate-500">
+                            <span className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-xs text-slate-500 dark:text-slate-400">
                               Team: {exp.team}
                             </span>
                           )}
                         </div>
 
-                        <p className="text-slate-600 text-sm mb-5 leading-relaxed">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm mb-5 leading-relaxed">
                           {exp.description}
                         </p>
 
@@ -95,7 +95,7 @@ const Experience: React.FC = () => {
                           {exp.achievements.map((item, idx) => (
                             <li
                               key={idx}
-                              className="flex items-start gap-2 text-sm text-slate-600"
+                              className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400"
                             >
                               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-400 shrink-0"></span>
                               <span className="line-clamp-2">{item}</span>
@@ -107,7 +107,7 @@ const Experience: React.FC = () => {
                           {exp.tech.map((t, idx) => (
                             <span
                               key={idx}
-                              className="text-xs font-medium text-slate-500 bg-slate-50 px-2 py-1 rounded"
+                              className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded"
                             >
                               {t}
                             </span>

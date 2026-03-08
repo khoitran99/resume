@@ -94,7 +94,7 @@ const AbstractBackground3D: React.FC<AbstractBackground3DProps> = ({
   scrollYProgress,
 }) => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50">
+    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-slate-800/50">
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
         {/* Ambient light for subtle illumination if using meshes, but Points use basic materials mostly */}
         <ambientLight intensity={0.5} />

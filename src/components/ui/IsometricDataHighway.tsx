@@ -204,7 +204,7 @@ const IsometricDataHighway: React.FC<IsometricDataHighwayProps> = ({
   scrollYProgress,
 }) => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 transition-colors duration-700 dark:bg-slate-950">
+    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-slate-800/50 transition-colors duration-700 dark:bg-slate-950">
       <Canvas
         // Orthographic camera represents isometric perspective perfectly, but a carefully placed perspective camera
         // with narrow FOV creates a nice "fake" isometric look with better depth perception during "forward" movement.
