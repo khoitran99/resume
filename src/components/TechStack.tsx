@@ -1,13 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import { motion } from "framer-motion";
 import { Code, Database, Server, Cloud, Terminal, Bot } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
 import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
-const technologies = [
+const getTechnologies = (t: TFunction) => [
   {
-    category: "Front-End",
+    category: t("expertise.frontend"),
     icon: <Code className="w-5 h-5" />,
     skills: [
       "React",
@@ -23,7 +25,7 @@ const technologies = [
     ],
   },
   {
-    category: "Back-End",
+    category: t("expertise.backend"),
     icon: <Server className="w-5 h-5" />,
     skills: [
       "Node.js",
@@ -37,12 +39,12 @@ const technologies = [
     ],
   },
   {
-    category: "Databases",
+    category: t("expertise.database"),
     icon: <Database className="w-5 h-5" />,
     skills: ["PostgreSQL", "MongoDB", "MySQL"],
   },
   {
-    category: "Cloud & DevOps",
+    category: t("expertise.cloud"),
     icon: <Cloud className="w-5 h-5" />,
     skills: [
       "AWS (ECS, EC2, RDS, S3, CloudFront)",
@@ -52,7 +54,7 @@ const technologies = [
     ],
   },
   {
-    category: "Practices & Tooling",
+    category: t("expertise.practices"),
     icon: <Terminal className="w-5 h-5" />,
     skills: [
       "Microservices",
@@ -64,7 +66,7 @@ const technologies = [
     ],
   },
   {
-    category: "AI Collaboration",
+    category: t("expertise.ai"),
     icon: <Bot className="w-5 h-5" />,
     skills: ["Cursor", "Antigravity", "Claude", "ChatGPT", "Codex"],
   },
@@ -86,20 +88,23 @@ const itemVariants = {
 } as const;
 
 const TechStack: React.FC = () => {
+  const { t } = useTranslation();
+  const technologies = getTechnologies(t);
+
   return (
     <section className="py-24 bg-transparent relative z-10 overflow-hidden">
-      <ParallaxBackgroundText text="EXPERTISE" speed={0.15} />
+      <ParallaxBackgroundText text={t("expertise.title")} speed={0.15} />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <MaskedHeading
               element="h2"
-              text="Technical Expertise"
+              text={t("expertise.subtitle")}
               className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-3 justify-center"
             />
             <MaskedHeading
               element="h3"
-              text="Technology Stack"
+              text={t("expertise.title")}
               className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 justify-center"
             />
           </div>

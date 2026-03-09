@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
+    "projects": "Dự án"
+  },
+  "hero": {
+    "greeting": "Xin chào, tôi là",
+    "role": "Senior Full-stack Engineer",
+    "description": "Kỹ sư phần mềm & Team lead | AWS Solutions Architect (Pro) | PMP | Kiến trúc đám mây & hệ thống mở rộng",
+    "viewWork": "Xem dự án",
+    "downloadCv": "Tải CV",
+    "contactMe": "Liên hệ"
+  },
+  "summary": {
+    "title": "Tóm tắt năng lực",
+    "p1_1": "Senior Full-stack Engineer với",
+    "p1_2": "~5 năm",
+    "p1_3": "kinh nghiệm chuyên nghiệp trong việc triển khai các nền tảng web quy mô doanh nghiệp và người tiêu dùng trong các lĩnh vực",
+    "p1_4": "FinTech, HealthTech, EdTech, đầu tư, xây dựng, e-commerce, và hệ thống doanh nghiệp",
+    "p2_1": "Chuyên môn sâu về",
+    "p2_2": "kiến trúc front-end",
+    "p2_3": "(React, Next.js, TypeScript) kết hợp với kỹ năng backend vững chắc và kinh nghiệm thực tế về cloud (AWS, GCP). Khả năng chứng minh trong việc thiết kế hệ thống từ đầu, mở rộng quy mô lên production, và dẫn dắt các kỹ sư trong môi trường làm việc áp lực cao, bao gồm cả khách hàng doanh nghiệp Nhật Bản.",
+    "p3_1": "Sẵn sàng làm chủ",
+    "p3_2": "toàn bộ vòng đời phát triển",
+    "p3_3": ": kiến trúc, lập trình, CI/CD, triển khai, tối ưu hóa hiệu năng, và bảo trì dài hạn."
+  },
+  "strengths": {
+    "bgText": "ĐIỂM MẠNH",
+    "title": "Điểm mạnh kỹ thuật",
+    "frontendTitle": "Kiến trúc hệ thống front-end",
+    "frontendDesc": "Chuyên môn về React, Next.js, và kỹ thuật hiệu năng cho các ứng dụng quy mô lớn.",
+    "backendTitle": "Nền tảng web full-stack",
+    "backendDesc": "Xây dựng các nền tảng có khả năng mở rộng với Node.js, NestJS và công nghệ backend hiện đại.",
+    "cloudTitle": "Hạ tầng cloud-native",
+    "cloudDesc": "Kinh nghiệm thực tiễn với các dịch vụ AWS và GCP, bao gồm ECS, RDS, và cân bằng tải.",
+    "cleanCodeTitle": "Clean Architecture & SOLID",
+    "cleanCodeDesc": "Viết mã nguồn dễ bảo trì, mở rộng và kiểm thử tuân theo các best practices của ngành.",
+    "devopsTitle": "CI/CD & DevOps",
+    "devopsDesc": "Tự động hóa triển khai và vận hành với Docker, GitLab CI/CD và công cụ đám mây.",
+    "leadershipTitle": "Lãnh đạo kỹ thuật",
+    "leadershipDesc": "Dẫn dắt nhóm, review code, và hướng dẫn kỹ sư trong các môi trường nhịp độ cao."
+  },
+  "expertise": {
+    "subtitle": "Chuyên môn kỹ thuật",
+    "title": "Công nghệ sử dụng",
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "database": "Cơ sở dữ liệu",
+    "cloud": "Hạ tầng đám mây & DevOps",
+    "practices": "Thực hành & công cụ",
+    "ai": "Làm việc với AI"
+  },
+  "education": {
+    "title": "HỌC VẤN",
+    "sectionTitle": "Học vấn",
+    "degree": "Cử nhân kỹ thuật phần mềm",
+    "certifications": "Chứng chỉ",
+    "languages": "Ngoại ngữ",
+    "vietnamese": "Tiếng Việt",
+    "native": "Bản ngữ",
+    "english": "Tiếng Anh",
+    "fluent": "Thành thạo",
+    "careerTitle": "Định hướng nghề nghiệp",
+    "careerP1": "Là một kỹ sư phần mềm và AWS Solutions Architect (Professional) với hơn 5 năm kinh nghiệm, tôi chuyên thiết kế, xây dựng và mở rộng các nền tảng cloud-native hiệu năng cao. Chuyên môn kỹ thuật của tôi kết nối các công nghệ web hiện đại (React, Next.js, Node.js) với kiến trúc đám mây AWS backend mạnh mẽ, tập trung nhiều vào khả năng mở rộng và bảo trì dài hạn.",
+    "careerP2": "Ngoài kỹ thuật, tôi còn có niềm đam mê sâu sắc với việc thực thi chiến lược dự án và lãnh đạo nhóm. Việc sở hữu chứng chỉ PMP giúp tôi kết nối hiệu quả sự xuất sắc về kỹ thuật với quy trình bàn giao có cấu trúc, hướng dẫn cho các lập trình viên, và liên tục cải thiện quy trình kỹ thuật.",
+    "drives": "Động lực làm việc của tôi:",
+    "drive1": "Thiết kế kiến trúc cho các hệ thống mở rộng và đáng tin cậy",
+    "drive2": "Trao quyền và hướng dẫn đội ngũ kỹ sư",
+    "drive3": "Thiết kế các quy trình kỹ thuật có cấu trúc và hiệu quả",
+    "drive4": "Tận dụng đám mây nâng cao và công nghệ AI để tạo ra những tác động thực tế",
+    "lookingFor": "Tôi hiện đang tìm kiếm cơ hội hợp tác trong lĩnh vực kiến trúc đám mây, phát triển sản phẩm mở rộng, và tích hợp hệ thống có ứng dụng AI."
+  },
+  "experience": {
+    "subtitle": "Hành trình",
+    "title": "Kinh nghiệm làm việc"
+  },
+  "project": {
+    "notFound": "Không tìm thấy dự án",
+    "backHome": "Về trang chủ",
+    "backPortfolio": "Về trang Portfolio",
+    "overview": "Tổng quan",
+    "techStack": "Công nghệ sử dụng",
+    "achievements": "Thành tựu chính",
+    "team": "Nhóm"
+  },
+  "cert": {
+    "notFound": "Không tìm thấy chứng chỉ",
+    "type": "Chứng chỉ chuyên môn",
+    "issued": "Cấp ngày",
+    "overview": "Tổng quan chuyên môn",
+    "skills": "Kỹ năng & kiến thức được chứng nhận"
+  }
+}

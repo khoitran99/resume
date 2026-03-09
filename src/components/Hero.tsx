@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import Magnetic from "./ui/Magnetic";
@@ -6,6 +7,7 @@ import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -46,7 +48,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Custom ease for "editorial" feel
                 className="text-primary-600 font-bold tracking-widest uppercase text-sm"
               >
-                Senior Full-Stack Engineer
+                {t("hero.role")}
               </motion.h2>
             </div>
 
@@ -89,8 +91,10 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
             >
-              Software Engineer & Team Leader | AWS Solutions Architect (Pro) |
-              PMP | Cloud Architecture & Scalable Systems
+              {t(
+                "hero.description",
+                "Software Engineer & Team Leader | AWS Solutions Architect (Pro) | PMP | Cloud Architecture & Scalable Systems",
+              )}
             </motion.p>
 
             {/* Contact Info - Now inside the parallax wrapper */}

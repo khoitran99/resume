@@ -3,11 +3,16 @@ import { motion } from "framer-motion";
 import { Briefcase, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { experiences } from "../data/experiences";
+import { experiencesVi } from "../data/experiencesVi";
+import { useTranslation } from "react-i18next";
 import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const Experience: React.FC = () => {
   const ref = useRef(null);
+  const { t, i18n } = useTranslation();
+  const currentExperiences =
+    i18n.language === "vi" ? experiencesVi : experiences;
   /* Removed unused scroll logic */
 
   return (
@@ -27,12 +32,12 @@ const Experience: React.FC = () => {
           <div className="text-center mb-16">
             <MaskedHeading
               element="h2"
-              text="My Journey"
+              text={t("experience.subtitle", "My Journey")}
               className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2 justify-center"
             />
             <MaskedHeading
               element="h3"
-              text="Professional Experience"
+              text={t("experience.title", "Professional Experience")}
               className="text-3xl font-bold text-slate-900 dark:text-slate-100 justify-center"
             />
           </div>
@@ -41,7 +46,7 @@ const Experience: React.FC = () => {
             {/* Timeline Background Line */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2"></div>
 
-            {experiences.map((exp, index) => (
+            {currentExperiences.map((exp, index) => (
               <motion.div
                 key={exp.id} // Changed to use ID
                 initial={{ opacity: 0, y: 20 }}

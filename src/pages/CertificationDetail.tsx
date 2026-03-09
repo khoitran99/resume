@@ -9,11 +9,16 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { certifications } from "../data/certifications";
+import { certificationsVi } from "../data/certificationsVi";
+import { useTranslation } from "react-i18next";
 
 const CertificationDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const cert = certifications.find((c) => c.id === id);
+  const { t, i18n } = useTranslation();
+  const currentCertifications =
+    i18n.language === "vi" ? certificationsVi : certifications;
+  const cert = currentCertifications.find((c) => c.id === id);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   useEffect(() => {
@@ -23,12 +28,12 @@ const CertificationDetail: React.FC = () => {
   if (!cert) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-transparent text-slate-600 dark:text-slate-400">
-        <h2 className="text-2xl font-bold mb-4">Certification Not Found</h2>
+        <h2 className="text-2xl font-bold mb-4">{t("cert.notFound")}</h2>
         <button
           onClick={() => navigate("/")}
           className="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2"
         >
-          <ArrowLeft className="w-4 h-4" /> Back to Home
+          <ArrowLeft className="w-4 h-4" /> {t("project.backHome")}
         </button>
       </div>
     );
@@ -43,7 +48,7 @@ const CertificationDetail: React.FC = () => {
             className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-primary-600 transition-colors font-medium group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Portfolio
+            {t("project.backPortfolio")}
           </Link>
         </div>
       </nav>
@@ -82,7 +87,7 @@ const CertificationDetail: React.FC = () => {
             >
               <div className="flex items-center gap-2 text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">
                 <Award className="w-4 h-4" />
-                <span>Professional Certification</span>
+                <span>{t("cert.type")}</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
                 {cert.title}
@@ -95,7 +100,9 @@ const CertificationDetail: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/60 dark:border-slate-800 shadow-sm text-sm">
                   <Calendar className="w-4 h-4 text-primary-500" />
-                  <span className="font-medium">Issued: {cert.date}</span>
+                  <span className="font-medium">
+                    {t("cert.issued")}: {cert.date}
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -109,7 +116,7 @@ const CertificationDetail: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center md:text-left">
-              Professional Overview
+              {t("cert.overview")}
             </h2>
             <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg">
               <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -125,7 +132,7 @@ const CertificationDetail: React.FC = () => {
             transition={{ delay: 0.3 }}
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 text-center md:text-left">
-              Validated Skills & Knowledge
+              {t("cert.skills")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {cert.skills.map((skill, idx) => (
@@ -136,7 +143,9 @@ const CertificationDetail: React.FC = () => {
                   <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 shrink-0">
                     <CheckCircle className="w-4 h-4" />
                   </div>
-                  <span className="font-medium text-slate-700 dark:text-slate-300">{skill}</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    {skill}
+                  </span>
                 </div>
               ))}
             </div>

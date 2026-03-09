@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const ExecutiveSummary: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-transparent relative z-10">
       <div className="container mx-auto px-4">
@@ -15,40 +17,37 @@ const ExecutiveSummary: React.FC = () => {
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px bg-slate-200 flex-1"></div>
             <h2 className="text-sm font-bold tracking-wider text-slate-400 uppercase">
-              Executive Summary
+              {t("summary.title")}
             </h2>
             <div className="h-px bg-slate-200 flex-1"></div>
           </div>
 
           <p className="text-xl md:text-2xl leading-relaxed text-slate-700 dark:text-slate-300 text-center font-light">
-            Senior Full-Stack Engineer with{" "}
-            <span className="font-semibold text-primary-600">~5 years</span> of
-            professional experience delivering enterprise-grade and
-            consumer-scale web platforms across{" "}
+            {t("summary.p1_1")}{" "}
+            <span className="font-semibold text-primary-600">
+              {t("summary.p1_2")}
+            </span>{" "}
+            {t("summary.p1_3")}{" "}
             <span className="text-slate-900 dark:text-slate-100 font-medium">
-              FinTech, HealthTech, EdTech, Investment, Construction, E-commerce,
-              and Enterprise Systems
+              {t("summary.p1_4")}
             </span>
             .
           </p>
 
           <div className="mt-8 text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
             <p>
-              Strong specialization in{" "}
+              {t("summary.p2_1")}{" "}
               <span className="text-slate-900 dark:text-slate-100 font-medium">
-                Front-End Architecture
+                {t("summary.p2_2")}
               </span>{" "}
-              (React, Next.js, TypeScript) combined with solid backend
-              engineering and hands-on cloud ownership (AWS, GCP). Proven
-              ability to design systems from scratch, scale them to production,
-              and lead engineers in high-responsibility environments, including
-              Japanese enterprise clients.
+              {t("summary.p2_3")}
             </p>
             <p>
-              Comfortable owning the{" "}
-              <span className="text-slate-900 dark:text-slate-100 font-medium">full lifecycle</span>
-              : architecture, development, CI/CD, deployment, performance
-              optimization, and long-term maintenance.
+              {t("summary.p3_1")}{" "}
+              <span className="text-slate-900 dark:text-slate-100 font-medium">
+                {t("summary.p3_2")}
+              </span>
+              {t("summary.p3_3")}
             </p>
           </div>
         </motion.div>

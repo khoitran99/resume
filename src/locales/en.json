@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "role": "Senior Full-Stack Engineer",
+    "description": "Software Engineer & Team Leader | AWS Solutions Architect (Pro) | PMP | Cloud Architecture & Scalable Systems",
+    "viewWork": "View My Work",
+    "downloadCv": "Download CV",
+    "contactMe": "Contact Me"
+  },
+  "summary": {
+    "title": "Executive Summary",
+    "p1_1": "Senior Full-Stack Engineer with",
+    "p1_2": "~5 years",
+    "p1_3": "of professional experience delivering enterprise-grade and consumer-scale web platforms across",
+    "p1_4": "FinTech, HealthTech, EdTech, Investment, Construction, E-commerce, and Enterprise Systems",
+    "p2_1": "Strong specialization in",
+    "p2_2": "Front-End Architecture",
+    "p2_3": "(React, Next.js, TypeScript) combined with solid backend engineering and hands-on cloud ownership (AWS, GCP). Proven ability to design systems from scratch, scale them to production, and lead engineers in high-responsibility environments, including Japanese enterprise clients.",
+    "p3_1": "Comfortable owning the",
+    "p3_2": "full lifecycle",
+    "p3_3": ": architecture, development, CI/CD, deployment, performance optimization, and long-term maintenance."
+  },
+  "strengths": {
+    "bgText": "STRENGTHS",
+    "title": "Core Engineering Strengths",
+    "frontendTitle": "Front-End System Architecture",
+    "frontendDesc": "Expertise in React, Next.js, and performance engineering for large-scale applications.",
+    "backendTitle": "Full-Stack Web Platform",
+    "backendDesc": "Building scalable platforms with Node.js, NestJS, and modern backend technologies.",
+    "cloudTitle": "Cloud-Native Infrastructure",
+    "cloudDesc": "Hands-on experience with AWS and GCP services, including ECS, RDS, and Load Balancing.",
+    "cleanCodeTitle": "Clean Architecture & SOLID",
+    "cleanCodeDesc": "Writing maintainable, scalable, and testable codebases following industry best practices.",
+    "devopsTitle": "CI/CD & DevOps",
+    "devopsDesc": "Automating deployments and operations with Docker, GitLab CI/CD, and cloud tooling.",
+    "leadershipTitle": "Technical Leadership",
+    "leadershipDesc": "Leading teams, reviewing code, and mentoring engineers in high-paced environments."
+  },
+  "expertise": {
+    "subtitle": "Technical Expertise",
+    "title": "Technology Stack",
+    "frontend": "Front-End",
+    "backend": "Back-End",
+    "database": "Databases",
+    "cloud": "Cloud & DevOps",
+    "practices": "Practices & Tooling",
+    "ai": "AI Collaboration"
+  },
+  "education": {
+    "title": "EDUCATION",
+    "sectionTitle": "Education",
+    "degree": "Bachelor of Software Engineering",
+    "certifications": "Certifications",
+    "languages": "Languages",
+    "vietnamese": "Vietnamese",
+    "native": "Native",
+    "english": "English",
+    "fluent": "Highly Proficient",
+    "careerTitle": "Career Direction",
+    "careerP1": "As a Software Engineer and AWS Solutions Architect – Professional with over 5 years of experience, I specialize in designing, building, and scaling high-performance cloud-native platforms. My technical expertise bridges modern web technologies (React, Next.js, Node.js) with robust backend AWS cloud architecture, focusing heavily on long-term scalability and maintainability.",
+    "careerP2": "Beyond engineering, I am deeply passionate about strategic project execution and team leadership. Holding a PMP certification enables me to effectively bridge technical excellence with structured delivery, mentoring developers, and continuously improving engineering processes.",
+    "drives": "What drives my work:",
+    "drive1": "Architecting systems that scale reliably",
+    "drive2": "Empowering and mentoring engineering teams",
+    "drive3": "Designing structured, efficient engineering processes",
+    "drive4": "Leveraging advanced cloud and AI technologies to drive measurable impact",
+    "lookingFor": "I am currently exploring opportunities and collaborations in cloud architecture, scalable product development, and AI-driven system integration."
+  },
+  "experience": {
+    "subtitle": "My Journey",
+    "title": "Professional Experience"
+  },
+  "project": {
+    "notFound": "Project Not Found",
+    "backHome": "Back to Home",
+    "backPortfolio": "Back to Portfolio",
+    "overview": "Overview",
+    "techStack": "Technology Stack",
+    "achievements": "Key Achievements",
+    "team": "Team"
+  },
+  "cert": {
+    "notFound": "Certification Not Found",
+    "type": "Professional Certification",
+    "issued": "Issued",
+    "overview": "Professional Overview",
+    "skills": "Validated Skills & Knowledge"
+  }
+}

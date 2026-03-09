@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 import Magnetic from "./Magnetic";
 import {
@@ -10,17 +11,21 @@ import {
   GraduationCap,
 } from "lucide-react";
 
-const navItems = [
-  { id: "hero", label: "Home", icon: Home },
-  { id: "summary", label: "Executive Summary", icon: User },
-  { id: "strengths", label: "Core Strengths", icon: Award },
-  { id: "techstack", label: "Tech Stack", icon: Code2 },
-  { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "education", label: "Education & Certifications", icon: GraduationCap },
-];
-
 const FloatingNav: React.FC = () => {
   const [activeSection, setActiveSection] = useState("hero");
+  const { t } = useTranslation();
+
+  const navItems = useMemo(
+    () => [
+      { id: "hero", label: t("nav.home"), icon: Home },
+      { id: "summary", label: "Executive Summary", icon: User },
+      { id: "strengths", label: "Core Strengths", icon: Award },
+      { id: "techstack", label: "Tech Stack", icon: Code2 },
+      { id: "experience", label: t("nav.experience"), icon: Briefcase },
+      { id: "education", label: t("nav.education"), icon: GraduationCap },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +42,7 @@ const FloatingNav: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">

@@ -1,45 +1,41 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import { motion } from "framer-motion";
 import { Layers, Server, Cloud, Code2, GitMerge, Users } from "lucide-react";
 import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
-const strengths = [
+const getStrengths = (t: TFunction) => [
   {
     icon: <Layers className="w-6 h-6" />,
-    title: "Front-End System Architecture",
-    description:
-      "Expertise in React, Next.js, and performance engineering for large-scale applications.",
+    title: t("strengths.frontendTitle"),
+    description: t("strengths.frontendDesc"),
   },
   {
     icon: <Server className="w-6 h-6" />,
-    title: "Full-Stack Web Platform",
-    description:
-      "Building scalable platforms with Node.js, NestJS, and modern backend technologies.",
+    title: t("strengths.backendTitle"),
+    description: t("strengths.backendDesc"),
   },
   {
     icon: <Cloud className="w-6 h-6" />,
-    title: "Cloud-Native Infrastructure",
-    description:
-      "Hands-on experience with AWS and GCP services, including ECS, RDS, and Load Balancing.",
+    title: t("strengths.cloudTitle"),
+    description: t("strengths.cloudDesc"),
   },
   {
     icon: <Code2 className="w-6 h-6" />,
-    title: "Clean Architecture & SOLID",
-    description:
-      "Writing maintainable, scalable, and testable codebases following industry best practices.",
+    title: t("strengths.cleanCodeTitle"),
+    description: t("strengths.cleanCodeDesc"),
   },
   {
     icon: <GitMerge className="w-6 h-6" />,
-    title: "CI/CD & DevOps",
-    description:
-      "Automating deployments and operations with Docker, GitLab CI/CD, and cloud tooling.",
+    title: t("strengths.devopsTitle"),
+    description: t("strengths.devopsDesc"),
   },
   {
     icon: <Users className="w-6 h-6" />,
-    title: "Technical Leadership",
-    description:
-      "Leading teams, reviewing code, and mentoring engineers in high-paced environments.",
+    title: t("strengths.leadershipTitle"),
+    description: t("strengths.leadershipDesc"),
   },
 ];
 
@@ -68,14 +64,17 @@ const itemVariants = {
 } as const;
 
 const CoreStrengths: React.FC = () => {
+  const { t } = useTranslation();
+  const strengths = getStrengths(t);
+
   return (
     <section className="py-24 bg-transparent relative z-10 overflow-hidden">
-      <ParallaxBackgroundText text="STRENGTHS" speed={-0.15} />
+      <ParallaxBackgroundText text={t("strengths.bgText")} speed={-0.15} />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <MaskedHeading
             element="h2"
-            text="Core Engineering Strengths"
+            text={t("strengths.title")}
             className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-slate-100 justify-center w-full"
           />
 

@@ -10,11 +10,16 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { experiences } from "../data/experiences";
+import { experiencesVi } from "../data/experiencesVi";
+import { useTranslation } from "react-i18next";
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const project = experiences.find((exp) => exp.id === id);
+  const { t, i18n } = useTranslation();
+  const currentExperiences =
+    i18n.language === "vi" ? experiencesVi : experiences;
+  const project = currentExperiences.find((exp) => exp.id === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,12 +28,12 @@ const ProjectDetail: React.FC = () => {
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-transparent text-slate-600 dark:text-slate-400">
-        <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
+        <h2 className="text-2xl font-bold mb-4">{t("project.notFound")}</h2>
         <button
           onClick={() => navigate("/")}
           className="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2"
         >
-          <ArrowLeft className="w-4 h-4" /> Back to Home
+          <ArrowLeft className="w-4 h-4" /> {t("project.backHome")}
         </button>
       </div>
     );
@@ -44,7 +49,7 @@ const ProjectDetail: React.FC = () => {
             className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-primary-600 transition-colors font-medium group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Portfolio
+            {t("project.backPortfolio")}
           </Link>
         </div>
       </nav>
@@ -76,7 +81,9 @@ const ProjectDetail: React.FC = () => {
               {project.team && (
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-primary-500" />
-                  <span>Team: {project.team}</span>
+                  <span>
+                    {t("project.team")}: {project.team}
+                  </span>
                 </div>
               )}
               <div className="flex items-center gap-2">
@@ -93,7 +100,9 @@ const ProjectDetail: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">Overview</h2>
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">
+              {t("project.overview")}
+            </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
               {project.longDescription || project.description}
             </p>
@@ -108,7 +117,7 @@ const ProjectDetail: React.FC = () => {
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
               <Code className="w-6 h-6 text-primary-600" />
-              Technology Stack
+              {t("project.techStack")}
             </h2>
             <div className="flex flex-wrap gap-3">
               {project.tech.map((tech, idx) => (
@@ -131,7 +140,7 @@ const ProjectDetail: React.FC = () => {
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-primary-600" />
-              Key Achievements
+              {t("project.achievements")}
             </h2>
             <div className="grid grid-cols-1 gap-4">
               {project.achievements.map((item, idx) => (
@@ -139,7 +148,9 @@ const ProjectDetail: React.FC = () => {
                   <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-primary-600"></div>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{item}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {item}
+                  </p>
                 </div>
               ))}
             </div>
