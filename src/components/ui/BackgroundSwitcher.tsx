@@ -44,15 +44,15 @@ const BackgroundSwitcher: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            initial={{ opacity: 0, x: -20, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 20, scale: 0.9 }}
+            exit={{ opacity: 0, x: -20, scale: 0.9 }}
             transition={{
               type: "spring",
               stiffness: 400,
               damping: 25,
             }}
-            className="absolute right-[calc(100%+1rem)] bottom-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 z-50 origin-right w-48"
+            className="absolute left-[calc(100%+1rem)] bottom-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 z-50 origin-left w-48"
           >
             <div className="px-3 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
               Background Style
@@ -113,10 +113,10 @@ const BackgroundSwitcher: React.FC = () => {
 
           {/* Tooltip */}
           {!isOpen && (
-            <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
+            <div className="absolute left-16 opacity-0 -translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
               Change Background
               {/* Tooltip Chevron */}
-              <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
+              <div className="absolute top-1/2 -left-1 -translate-y-1/2 border-4 border-transparent border-r-slate-900"></div>
             </div>
           )}
         </button>
