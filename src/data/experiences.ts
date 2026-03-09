@@ -98,29 +98,7 @@ export const experiences: Experience[] = [
       "AWS",
     ],
   },
-  {
-    id: "flyer-edtech",
-    role: "Frontend / Full-Stack Developer",
-    company: "FLYER – Interactive English Testing Platform",
-    period: "Jan 2023 – Sep 2023",
-    domain: "EdTech",
-    team: null,
-    description: "Built animated learning interfaces and admin dashboards.",
-    achievements: [
-      "Developed backend services and GraphQL APIs",
-      "Integrated Firebase Remote Config for dynamic behavior",
-    ],
-    tech: [
-      "Next.js",
-      "React Native",
-      "NestJS",
-      "Hasura",
-      "PostgreSQL",
-      "GraphQL",
-      "Docker",
-      "Firebase",
-    ],
-  },
+
   {
     id: "yma-construction",
     role: "Front-End Team Lead",

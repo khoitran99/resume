@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArrowUp, Moon, Sun } from "lucide-react";
+import { ArrowUp, Moon, Sun, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import Magnetic from "./Magnetic";
 
@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const FloatingActions: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // Show "Back to Top" only when scrolled down
   useEffect(() => {
@@ -88,12 +88,11 @@ const FloatingActions: React.FC = () => {
       </Magnetic>
 
       {/* Download Resume Button */}
-      {/* 
       <Magnetic>
         <a
-          href="#"
+          href="/cv/Khoi-Tran-TopCV.vn-100326.31831.pdf"
           download
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:bg-slate-900/80 dark:text-white dark:border-slate-700 shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
         >
           <motion.div
             variants={{
@@ -111,12 +110,11 @@ const FloatingActions: React.FC = () => {
           </motion.div>
 
           <div className="absolute right-16 opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 text-white text-xs font-medium py-1.5 px-3 rounded-lg whitespace-nowrap shadow-md">
-            Download My Resume
+            {t("hero.downloadCv", "Download CV")}
             <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-slate-900"></div>
           </div>
         </a>
       </Magnetic>
-      */}
 
       {/* Back to Top Button */}
       {isVisible && (

@@ -88,29 +88,7 @@ export const experiencesVi: Experience[] = [
       "AWS",
     ],
   },
-  {
-    id: "flyer-edtech",
-    role: "Frontend / Full-Stack Developer",
-    company: "FLYER – Nền tảng kiểm tra tiếng Anh tương tác",
-    period: "Tháng 1/2023 – Tháng 9/2023",
-    domain: "EdTech",
-    team: null,
-    description: "Xây dựng giao diện học tập động và dashboard dành cho admin.",
-    achievements: [
-      "Phát triển các dịch vụ backend và GraphQL APIs",
-      "Tích hợp Firebase Remote Config cho các hành vi động",
-    ],
-    tech: [
-      "Next.js",
-      "React Native",
-      "NestJS",
-      "Hasura",
-      "PostgreSQL",
-      "GraphQL",
-      "Docker",
-      "Firebase",
-    ],
-  },
+
   {
     id: "yma-construction",
     role: "Front-End Team Lead",
