@@ -44,15 +44,15 @@ const BackgroundSwitcher: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 20, scale: 0.9 }}
             transition={{
               type: "spring",
               stiffness: 400,
               damping: 25,
             }}
-            className="absolute bottom-full right-0 mb-4 bg-white/80 dark:bg-slate-900/80 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 dark:border-slate-700/60 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 z-50 origin-bottom w-48"
+            className="absolute right-[calc(100%+1rem)] bottom-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 z-50 origin-right w-48"
           >
             <div className="px-3 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
               Background Style
