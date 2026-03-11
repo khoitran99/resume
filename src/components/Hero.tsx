@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
               </motion.h2>
             </div>
 
-            <div className="overflow-hidden mb-6 flex justify-center h-24 md:h-32">
+            <div className="overflow-hidden mb-6 flex justify-center h-28 md:h-40 items-center">
               <motion.h1
                 initial={{ y: "150%" }}
                 animate={{ y: 0 }}
@@ -61,21 +61,23 @@ const Hero: React.FC = () => {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight"
+                className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight leading-tight whitespace-nowrap"
               >
                 <TypeAnimation
                   sequence={[
-                    "Trần Văn Khôi",
-                    2000,
-                    "Khôi Trần",
+                    "Khoi Tran",
                     2000,
                     "Software Engineer",
                     2000,
-                    "Marathon Runner",
+                    "Senior Frontend Developer",
                     2000,
-                    "Bodybuilder",
+                    "Team Leader",
                     2000,
                     "Tech Savvy",
+                    2000,
+                    "AWS SA Pro",
+                    2000,
+                    "Certified PMP",
                     2000,
                   ]}
                   wrapper="span"
