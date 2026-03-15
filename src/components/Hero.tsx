@@ -2,8 +2,19 @@ import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-scroll";
 import Magnetic from "./ui/Magnetic";
-import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Globe,
+  ArrowRight,
+  Download,
+} from "lucide-react";
+import { RESUME_DOWNLOAD_NAME, RESUME_PDF_PATH } from "../constants/resume";
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -98,6 +109,36 @@ const Hero: React.FC = () => {
                 "Software Engineer & Team Leader | AWS Solutions Architect (Pro) | PMP | Cloud Architecture & Scalable Systems",
               )}
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="flex flex-wrap justify-center gap-4 mb-10"
+            >
+              <Magnetic strength={20}>
+                <Link
+                  to="projects"
+                  smooth={true}
+                  duration={500}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white font-medium shadow-lg cursor-pointer hover:bg-primary-600 transition-colors"
+                >
+                  {t("hero.viewWork", "View My Work")}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Magnetic>
+
+              <Magnetic strength={20}>
+                <a
+                  href={RESUME_PDF_PATH}
+                  download={RESUME_DOWNLOAD_NAME}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/85 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 text-slate-900 dark:text-white font-medium shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-colors"
+                >
+                  {t("hero.downloadCv", "Download CV")}
+                  <Download className="w-4 h-4" />
+                </a>
+              </Magnetic>
+            </motion.div>
 
             {/* Contact Info - Now inside the parallax wrapper */}
             <motion.div

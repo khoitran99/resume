@@ -4,22 +4,20 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Calendar,
-  Briefcase,
   Users,
   Code,
   CheckCircle,
 } from "lucide-react";
-import { experiences } from "../data/experiences";
-import { experiencesVi } from "../data/experiencesVi";
+import { projects } from "../data/experiences";
+import { projectsVi } from "../data/experiencesVi";
 import { useTranslation } from "react-i18next";
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const currentExperiences =
-    i18n.language === "vi" ? experiencesVi : experiences;
-  const project = currentExperiences.find((exp) => exp.id === id);
+  const currentProjects = i18n.language === "vi" ? projectsVi : projects;
+  const project = currentProjects.find((entry) => entry.id === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,31 +63,26 @@ const ProjectDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-12"
           >
-            <div className="flex items-center gap-2 text-primary-600 font-bold tracking-wider uppercase text-sm mb-4">
-              <span className="w-8 h-px bg-primary-600"></span>
-              {project.domain || "Project"}
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
-              {project.role} at {project.company}
+              {project.title}
             </h1>
+            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-6">
+              {project.role}
+            </p>
 
             <div className="flex flex-wrap gap-6 text-slate-600 dark:text-slate-400 border-b border-slate-200 pb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-primary-500" />
                 <span>{project.period}</span>
               </div>
-              {project.team && (
+              {project.teamSize && (
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-primary-500" />
                   <span>
-                    {t("project.team")}: {project.team}
+                    {t("project.team")}: {project.teamSize}
                   </span>
                 </div>
               )}
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-primary-500" />
-                <span>{project.role}</span>
-              </div>
             </div>
           </motion.div>
 
@@ -104,7 +97,7 @@ const ProjectDetail: React.FC = () => {
               {t("project.overview")}
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-              {project.longDescription || project.description}
+              {project.summary}
             </p>
           </motion.section>
 
@@ -120,7 +113,7 @@ const ProjectDetail: React.FC = () => {
               {t("project.techStack")}
             </h2>
             <div className="flex flex-wrap gap-3">
-              {project.tech.map((tech, idx) => (
+              {project.techStack.map((tech, idx) => (
                 <span
                   key={idx}
                   className="px-4 py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/60 dark:border-slate-800 rounded-lg text-slate-800 dark:text-slate-200 font-medium shadow-sm"
@@ -140,10 +133,10 @@ const ProjectDetail: React.FC = () => {
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-primary-600" />
-              {t("project.achievements")}
+              {t("project.contributions")}
             </h2>
             <div className="grid grid-cols-1 gap-4">
-              {project.achievements.map((item, idx) => (
+              {project.contributions.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-primary-600"></div>

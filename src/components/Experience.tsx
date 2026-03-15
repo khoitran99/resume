@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { experiences } from "../data/experiences";
-import { experiencesVi } from "../data/experiencesVi";
+import { projects } from "../data/experiences";
+import { projectsVi } from "../data/experiencesVi";
 import { useTranslation } from "react-i18next";
 import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
@@ -11,8 +11,7 @@ import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 const Experience: React.FC = () => {
   const ref = useRef(null);
   const { t, i18n } = useTranslation();
-  const currentExperiences =
-    i18n.language === "vi" ? experiencesVi : experiences;
+  const currentProjects = i18n.language === "vi" ? projectsVi : projects;
   /* Removed unused scroll logic */
 
   return (
@@ -20,7 +19,10 @@ const Experience: React.FC = () => {
       ref={ref}
       className="py-24 bg-transparent overflow-hidden relative"
     >
-      <ParallaxBackgroundText text="EXPERIENCE" speed={0.1} />
+      <ParallaxBackgroundText
+        text={t("projectsSection.title", "Projects").toUpperCase()}
+        speed={0.1}
+      />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,12 +34,12 @@ const Experience: React.FC = () => {
           <div className="text-center mb-16">
             <MaskedHeading
               element="h2"
-              text={t("experience.subtitle", "My Journey")}
+              text={t("projectsSection.subtitle", "Selected Projects")}
               className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2 justify-center"
             />
             <MaskedHeading
               element="h3"
-              text={t("experience.title", "Professional Experience")}
+              text={t("projectsSection.title", "Projects")}
               className="text-3xl font-bold text-slate-900 dark:text-slate-100 justify-center"
             />
           </div>
@@ -46,9 +48,9 @@ const Experience: React.FC = () => {
             {/* Timeline Background Line */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2"></div>
 
-            {currentExperiences.map((exp, index) => (
+            {currentProjects.map((project, index) => (
               <motion.div
-                key={exp.id} // Changed to use ID
+                key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -63,41 +65,45 @@ const Experience: React.FC = () => {
                 >
                   {/* Content Card */}
                   <div className="w-full md:w-[calc(50%-2rem)]">
-                    <Link to={`/project/${exp.id}`} className="block">
+                    <Link to={`/project/${project.id}`} className="block">
                       <motion.div
-                        layoutId={`project-container-${exp.id}`}
+                        layoutId={`project-container-${project.id}`}
                         className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 relative group-hover:bg-white/90 dark:group-hover:bg-slate-800/90"
                       >
                         {/* Mobile Timeline Dot/Line */}
                         <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
                         <div className="md:hidden absolute -left-[27px] top-10 bottom-[-50px] w-px bg-slate-200 last:hidden"></div>
 
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="flex items-center gap-2 text-primary-600 font-medium text-sm">
-                            <Briefcase className="w-4 h-4" />
-                            <span>{exp.period}</span>
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <div>
+                            <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-primary-600 transition-colors">
+                              {project.title}
+                            </h4>
+                            <div className="text-slate-600 dark:text-slate-400 font-medium">
+                              {project.role}
+                            </div>
                           </div>
                           <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
                         </div>
 
-                        <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-1 group-hover:text-primary-600 transition-colors">
-                          {exp.role}
-                        </h4>
-                        <div className="text-slate-600 dark:text-slate-400 font-medium mb-4 flex flex-wrap gap-2 items-center">
-                          <span>{exp.company}</span>
-                          {exp.team && (
+                        <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-primary-600 font-medium">
+                          <span className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4" />
+                            {project.period}
+                          </span>
+                          {project.teamSize && (
                             <span className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-xs text-slate-500 dark:text-slate-400">
-                              Team: {exp.team}
+                              {t("project.team")}: {project.teamSize}
                             </span>
                           )}
                         </div>
 
-                        <p className="text-slate-600 dark:text-slate-400 text-sm mb-5 leading-relaxed">
-                          {exp.description}
+                        <p className="text-slate-600 dark:text-slate-400 text-sm mb-5 leading-relaxed line-clamp-4">
+                          {project.summary}
                         </p>
 
                         <ul className="space-y-3 mb-6">
-                          {exp.achievements.map((item, idx) => (
+                          {project.contributions.slice(0, 3).map((item, idx) => (
                             <li
                               key={idx}
                               className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400"
@@ -109,12 +115,12 @@ const Experience: React.FC = () => {
                         </ul>
 
                         <div className="flex flex-wrap gap-2 pt-5 border-t border-slate-50">
-                          {exp.tech.map((t, idx) => (
+                          {project.techStack.map((tech, idx) => (
                             <span
                               key={idx}
                               className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded"
                             >
-                              {t}
+                              {tech}
                             </span>
                           ))}
                         </div>

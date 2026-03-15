@@ -21,7 +21,7 @@ const FloatingNav: React.FC = () => {
       { id: "summary", label: "Executive Summary", icon: User },
       { id: "strengths", label: "Core Strengths", icon: Award },
       { id: "techstack", label: "Tech Stack", icon: Code2 },
-      { id: "experience", label: t("nav.experience"), icon: Briefcase },
+      { id: "projects", label: t("nav.projects"), icon: Briefcase },
       { id: "education", label: t("nav.education"), icon: GraduationCap },
     ],
     [t],

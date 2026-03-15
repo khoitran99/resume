@@ -72,6 +72,10 @@
     "drive4": "Tận dụng đám mây nâng cao và công nghệ AI để tạo ra những tác động thực tế",
     "lookingFor": "Tôi hiện đang tìm kiếm cơ hội hợp tác trong lĩnh vực kiến trúc đám mây, phát triển sản phẩm mở rộng, và tích hợp hệ thống có ứng dụng AI."
   },
+  "projectsSection": {
+    "subtitle": "Dự án tiêu biểu",
+    "title": "Dự án"
+  },
   "experience": {
     "subtitle": "Hành trình",
     "title": "Kinh nghiệm làm việc"
@@ -82,8 +86,8 @@
     "backPortfolio": "Về trang Portfolio",
     "overview": "Tổng quan",
     "techStack": "Công nghệ sử dụng",
-    "achievements": "Thành tựu chính",
-    "team": "Nhóm"
+    "contributions": "Đóng góp chính",
+    "team": "Quy mô nhóm"
   },
   "cert": {
     "notFound": "Không tìm thấy chứng chỉ",

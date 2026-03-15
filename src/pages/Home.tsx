@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <div id="techstack">
         <TechStack />
       </div>
-      <div id="experience">
+      <div id="projects">
         <Experience />
       </div>
       <div id="education">

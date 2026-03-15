@@ -72,6 +72,10 @@
     "drive4": "Leveraging advanced cloud and AI technologies to drive measurable impact",
     "lookingFor": "I am currently exploring opportunities and collaborations in cloud architecture, scalable product development, and AI-driven system integration."
   },
+  "projectsSection": {
+    "subtitle": "Selected Projects",
+    "title": "Projects"
+  },
   "experience": {
     "subtitle": "My Journey",
     "title": "Professional Experience"
@@ -82,8 +86,8 @@
     "backPortfolio": "Back to Portfolio",
     "overview": "Overview",
     "techStack": "Technology Stack",
-    "achievements": "Key Achievements",
-    "team": "Team"
+    "contributions": "Key Contributions",
+    "team": "Team size"
   },
   "cert": {
     "notFound": "Certification Not Found",

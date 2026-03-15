@@ -6,6 +6,10 @@ import Magnetic from "./Magnetic";
 import BackgroundSwitcher from "./BackgroundSwitcher";
 import { useTheme } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
+import {
+  RESUME_DOWNLOAD_NAME,
+  RESUME_PDF_PATH,
+} from "../../constants/resume";
 
 const FloatingActions: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -90,8 +94,8 @@ const FloatingActions: React.FC = () => {
       {/* Download Resume Button */}
       <Magnetic>
         <a
-          href="/cv/Khoi-Tran-TopCV.vn-100326.31831.pdf"
-          download
+          href={RESUME_PDF_PATH}
+          download={RESUME_DOWNLOAD_NAME}
           className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
         >
           <motion.div
