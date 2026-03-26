@@ -3,7 +3,6 @@ import { ArrowUp, Moon, Sun, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import Magnetic from "./Magnetic";
 
-import BackgroundSwitcher from "./BackgroundSwitcher";
 import { useTheme } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import {
@@ -39,8 +38,6 @@ const FloatingActions: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
-      {/* Background Switcher Menu */}
-      <BackgroundSwitcher />
 
       {/* Language Toggle Button */}
       <Magnetic>
