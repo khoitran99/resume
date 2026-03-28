@@ -68,11 +68,11 @@ const Experience: React.FC = () => {
                     <Link to={`/project/${project.id}`} className="block">
                       <motion.div
                         layoutId={`project-container-${project.id}`}
-                        className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 relative group-hover:bg-white/90 dark:group-hover:bg-slate-800/90"
+                        className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 relative group-hover:bg-white/90 dark:group-hover:bg-slate-800/90"
                       >
                         {/* Mobile Timeline Dot/Line */}
                         <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
-                        <div className="md:hidden absolute -left-[27px] top-10 bottom-[-50px] w-px bg-slate-200 last:hidden"></div>
+                        <div className="md:hidden absolute -left-6.75 top-10 -bottom-12.5 w-px bg-slate-200 last:hidden"></div>
 
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div>

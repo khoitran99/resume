@@ -94,7 +94,7 @@ const CoreStrengths: React.FC = () => {
                   boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)",
                   borderColor: "rgba(14, 165, 233, 0.4)", // text-primary-500 approx
                 }}
-                className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-slate-500/20 group cursor-pointer relative overflow-hidden"
+                className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl shadow-lg border border-slate-500/20 group cursor-pointer relative overflow-hidden"
               >
                 {/* Decorative Glowing Orb on Hover */}
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-primary-300 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />

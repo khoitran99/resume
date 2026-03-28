@@ -28,20 +28,30 @@ const FloatingNav: React.FC = () => {
   );
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+    let timeoutId: number | null = null;
 
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const section = document.getElementById(navItems[i].id);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+    const handleScroll = () => {
+      if (timeoutId === null) {
+        timeoutId = setTimeout(() => {
+          const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+          for (let i = navItems.length - 1; i >= 0; i--) {
+            const section = document.getElementById(navItems[i].id);
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(navItems[i].id);
+              break;
+            }
+          }
+          timeoutId = null;
+        }, 100); // 100ms throttle
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [navItems]);
 
   return (
@@ -57,10 +67,10 @@ const FloatingNav: React.FC = () => {
               spy={true}
               smooth={true}
               duration={500}
-              className={`group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border ${
+              className={`group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-sm border ${
                 isActive
                   ? "bg-slate-900 text-white border-slate-700 shadow-lg scale-110"
-                  : "bg-white/80 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 border-white/60 dark:border-slate-800 shadow-sm hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:text-slate-800 dark:text-slate-200 hover:scale-105"
+                  : "bg-white/95 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-white/60 dark:border-slate-800 shadow-sm hover:bg-white dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-slate-200 hover:scale-105 hover:border-slate-300 dark:hover:border-slate-700"
               }`}
             >
               <Icon className="w-5 h-5" />

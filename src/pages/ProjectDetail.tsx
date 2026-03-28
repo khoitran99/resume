@@ -40,7 +40,7 @@ const ProjectDetail: React.FC = () => {
   return (
     <div className="bg-transparent min-h-screen text-slate-900 dark:text-slate-100 selection:bg-primary-100 selection:text-primary-700">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200">
         <div className="container mx-auto px-4 h-16 flex items-center">
           <Link
             to="/"
@@ -55,7 +55,7 @@ const ProjectDetail: React.FC = () => {
       <main className="pt-24 pb-20">
         <motion.div
           layoutId={`project-container-${project.id}`}
-          className="container mx-auto px-4 max-w-4xl bg-white/40 backdrop-blur-3xl rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl"
+          className="container mx-auto px-4 max-w-4xl bg-white/95 dark:bg-slate-900/95 rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl"
         >
           {/* Header */}
           <motion.div
@@ -116,7 +116,7 @@ const ProjectDetail: React.FC = () => {
               {project.techStack.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/60 dark:border-slate-800 rounded-lg text-slate-800 dark:text-slate-200 font-medium shadow-sm"
+                  className="px-4 py-2 bg-white/95 dark:bg-slate-900/95 border border-white/60 dark:border-slate-800 rounded-lg text-slate-800 dark:text-slate-200 font-medium shadow-sm"
                 >
                   {tech}
                 </span>
@@ -129,7 +129,7 @@ const ProjectDetail: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-8 border border-white/60 dark:border-slate-800 shadow-lg"
+            className="bg-white/95 dark:bg-slate-900/95 rounded-2xl p-8 border border-white/60 dark:border-slate-800 shadow-lg"
           >
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-primary-600" />
@@ -151,7 +151,7 @@ const ProjectDetail: React.FC = () => {
         </motion.div>
       </main>
 
-      <footer className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md py-8 text-center text-slate-500 dark:text-slate-400 text-sm border-t border-white/60 dark:border-slate-800">
+      <footer className="bg-white/95 dark:bg-slate-900/95 py-8 text-center text-slate-500 dark:text-slate-400 text-sm border-t border-white/60 dark:border-slate-800">
         <p>
           © {new Date().getFullYear()} Trần Văn Khôi. Built with React, Vite &
           Tailwind CSS.

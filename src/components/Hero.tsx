@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
                 <a
                   href={RESUME_PDF_PATH}
                   download={RESUME_DOWNLOAD_NAME}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/85 dark:bg-slate-900/80 backdrop-blur-xl border border-white/60 dark:border-slate-800 text-slate-900 dark:text-white font-medium shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/95 dark:bg-slate-900/95 border border-white/60 dark:border-slate-800 text-slate-900 dark:text-white font-medium shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-colors"
                 >
                   {t("hero.downloadCv", "Download CV")}
                   <Download className="w-4 h-4" />

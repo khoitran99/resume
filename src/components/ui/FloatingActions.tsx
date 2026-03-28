@@ -17,16 +17,26 @@ const FloatingActions: React.FC = () => {
 
   // Show "Back to Top" only when scrolled down
   useEffect(() => {
+    let timeoutId: number | null = null;
+
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      if (timeoutId === null) {
+        timeoutId = setTimeout(() => {
+          if (window.scrollY > 300) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+          timeoutId = null;
+        }, 100);
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -43,7 +53,7 @@ const FloatingActions: React.FC = () => {
       <Magnetic>
         <button
           onClick={toggleTheme}
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-sm border bg-white/95 dark:bg-slate-900/95 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
           aria-label="Toggle Theme"
         >
           <motion.div
@@ -72,7 +82,7 @@ const FloatingActions: React.FC = () => {
         <a
           href={RESUME_PDF_PATH}
           download={RESUME_DOWNLOAD_NAME}
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border bg-white/80 dark:bg-slate-900/80 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-sm border bg-white/95 dark:bg-slate-900/95 text-primary-600 border-white/60 dark:border-slate-800 dark:text-white shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 hover:scale-105"
         >
           <motion.div
             variants={{
@@ -101,7 +111,7 @@ const FloatingActions: React.FC = () => {
         <Magnetic>
           <button
             onClick={scrollToTop}
-            className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-xl border shadow-lg translate-y-0 opacity-100 bg-slate-900 text-white border-slate-700 hover:scale-105"
+            className="group relative flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-sm border shadow-lg translate-y-0 opacity-100 bg-slate-900 text-white border-slate-700 hover:scale-105"
           >
             <ArrowUp className="w-5 h-5" />
 

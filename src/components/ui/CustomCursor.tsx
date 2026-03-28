@@ -44,7 +44,7 @@ const CustomCursor: React.FC = () => {
       return magneticElements;
     };
 
-    const elements = setupMagneticElements();
+    let elements = setupMagneticElements();
 
     // DOM observer in case new magnetic elements mount
     const observer = new MutationObserver(() => {
@@ -53,8 +53,8 @@ const CustomCursor: React.FC = () => {
         el.removeEventListener("mouseenter", handleHoverStart);
         el.removeEventListener("mouseleave", handleHoverEnd);
       });
-      // Setup new listeners
-      setupMagneticElements();
+      // Setup new listeners and update reference
+      elements = setupMagneticElements();
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
@@ -83,12 +83,13 @@ const CustomCursor: React.FC = () => {
     <>
       {/* Outer Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-primary-600 rounded-full pointer-events-none z-[9999] mix-blend-exclusion"
+        className="fixed top-0 left-0 w-8 h-8 border border-primary-600 rounded-full pointer-events-none z-9999"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
           translateX: "-50%",
           translateY: "-50%",
+          willChange: "transform, opacity, backgroundColor, scale",
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
@@ -101,7 +102,7 @@ const CustomCursor: React.FC = () => {
       />
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary-900 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary-900 rounded-full pointer-events-none z-9999"
         style={{
           x: cursorX, // Track exactly to mouse for responsiveness
           y: cursorY,

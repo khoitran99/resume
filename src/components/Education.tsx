@@ -49,7 +49,7 @@ const Education: React.FC = () => {
             {/* Education */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
+              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
@@ -76,7 +76,7 @@ const Education: React.FC = () => {
             {/* Certifications - Now Dynamic */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300"
+              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
@@ -113,7 +113,7 @@ const Education: React.FC = () => {
             {/* Languages */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
+              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
