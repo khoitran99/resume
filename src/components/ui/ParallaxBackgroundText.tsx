@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
 
 interface ParallaxBackgroundTextProps {
   text: string;
@@ -10,35 +9,20 @@ interface ParallaxBackgroundTextProps {
 const ParallaxBackgroundText: React.FC<ParallaxBackgroundTextProps> = ({
   text,
   className = "",
-  speed = -0.2, // Default gentle parallax
+  speed = -0.2,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"], // Track from when it enters bottom to leaves top
-  });
-
-  // Transform scroll progress (0 to 1) into vertical movement
-  // -100px to 100px is a good default gentle range
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [`${speed * -150}%`, `${speed * 150}%`],
-  );
+  void speed;
 
   return (
     <div
-      ref={containerRef}
       className="absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center -translate-y-[10%]"
       aria-hidden="true"
     >
-      <motion.div
-        style={{ y }}
+      <div
         className={`text-[12vw] md:text-[8vw] font-black tracking-tighter text-slate-900/5 select-none whitespace-nowrap opacity-30 ${className}`}
       >
         {text}
-      </motion.div>
+      </div>
     </div>
   );
 };

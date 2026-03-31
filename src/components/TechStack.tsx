@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
-import { motion } from "framer-motion";
 import { Code, Database, Server, Cloud, Terminal, Bot } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
 import MaskedHeading from "./ui/MaskedHeading";
@@ -72,21 +71,6 @@ const getTechnologies = (t: TFunction) => [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } },
-} as const;
-
 const TechStack: React.FC = () => {
   const { t } = useTranslation();
   const technologies = getTechnologies(t);
@@ -109,18 +93,12 @@ const TechStack: React.FC = () => {
             />
           </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {technologies.map((tech, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <div key={index}>
                 <SpotlightCard className="h-full p-8 group">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-primary-50 dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 bg-primary-50 dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                       {tech.icon}
                     </div>
                     <h4 className="font-bold text-lg text-slate-800 dark:text-slate-200">
@@ -139,9 +117,9 @@ const TechStack: React.FC = () => {
                     ))}
                   </div>
                 </SpotlightCard>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -3,54 +3,80 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
-import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import Home from "./pages/Home";
-
-import CustomCursor from "./components/ui/CustomCursor";
-
-// Static imports for Framer Motion layoutId transitions (lazy loading breaks layout calculations)
-import ProjectDetail from "./pages/ProjectDetail";
 import CertificationDetail from "./pages/CertificationDetail";
 
 // State
 import { ThemeProvider } from "./context/ThemeContext";
 
-function AppRoutes() {
+function ScrollManager() {
   const location = useLocation();
 
+  useEffect(() => {
+    let timeoutId: number | null = null;
+    let attempts = 0;
+
+    const scrollToDestination = () => {
+      if (!location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        return;
+      }
+
+      const targetId = decodeURIComponent(location.hash.slice(1));
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+          block: "start",
+        });
+        return;
+      }
+
+      if (attempts < 20) {
+        attempts += 1;
+        timeoutId = window.setTimeout(scrollToDestination, 50);
+      }
+    };
+
+    scrollToDestination();
+
+    return () => {
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [location.pathname, location.hash]);
+
+  return null;
+}
+
+function AppRoutes() {
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+    <>
+      <ScrollManager />
+      <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route
+          path="/project/:id"
+          element={<Navigate to={{ pathname: "/", hash: "#projects" }} replace />}
+        />
         <Route path="/certification/:id" element={<CertificationDetail />} />
       </Routes>
-    </AnimatePresence>
+    </>
   );
 }
 
 function AppContent() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-
-
   return (
     <Router>
       <div className="bg-transparent min-h-screen text-slate-900 dark:text-slate-100 selection:bg-primary-100 dark:selection:bg-primary-900 selection:text-primary-700 dark:selection:text-primary-100 relative z-10">
-        <CustomCursor />
-
         <div className="fixed inset-0 z-0 bg-slate-50 transition-colors duration-700 dark:bg-slate-950 pointer-events-none" />
-
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-slate-500 to-slate-900 z-50 origin-left"
-          style={{ scaleX, willChange: 'transform' }}
-        />
 
         <AppRoutes />
       </div>

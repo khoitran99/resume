@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Award,
@@ -54,15 +53,10 @@ const CertificationDetail: React.FC = () => {
       </nav>
 
       <main className="pt-24 pb-20">
-        <motion.div
-          layoutId={`cert-container-${cert.id}`}
-          className="container mx-auto px-4 max-w-4xl bg-white/95 dark:bg-slate-900/95 rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl"
-        >
+        <div className="container mx-auto px-4 max-w-4xl bg-white/95 dark:bg-slate-900/95 rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl">
           {/* Header Section */}
           <div className="flex flex-col items-center gap-8 mb-12">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+            <div
               className="w-full max-w-3xl bg-white/95 dark:bg-slate-900/95 p-4 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 cursor-pointer transition-transform hover:scale-[1.02]"
               onClick={() => setIsModalOpen(true)}
             >
@@ -78,13 +72,9 @@ const CertificationDetail: React.FC = () => {
                   }}
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="w-full text-center flex flex-col items-center"
-            >
+            <div className="w-full text-center flex flex-col items-center">
               <div className="flex items-center gap-2 text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">
                 <Award className="w-4 h-4" />
                 <span>{t("cert.type")}</span>
@@ -105,16 +95,11 @@ const CertificationDetail: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Professional Overview */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-12"
-          >
+          <section className="mb-12">
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center md:text-left">
               {t("cert.overview")}
             </h2>
@@ -123,14 +108,10 @@ const CertificationDetail: React.FC = () => {
                 {cert.description}
               </p>
             </div>
-          </motion.section>
+          </section>
 
           {/* Skills Validation */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
+          <section>
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6 text-center md:text-left">
               {t("cert.skills")}
             </h2>
@@ -149,14 +130,14 @@ const CertificationDetail: React.FC = () => {
                 </div>
               ))}
             </div>
-          </motion.section>
-        </motion.div>
+          </section>
+        </div>
       </main>
 
       {/* Image Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 z-100 bg-black/90 flex flex-col items-center justify-center backdrop-blur-sm p-4"
+          className="fixed inset-0 z-100 bg-black/90 flex flex-col items-center justify-center p-4"
           onClick={() => setIsModalOpen(false)}
         >
           <div className="absolute top-4 right-4 md:top-8 md:right-8 z-110">

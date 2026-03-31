@@ -26,6 +26,23 @@ export const projectsVi: ProjectEntry[] = [
       "GCS",
       "AWS",
     ],
+    caseStudy: {
+      challenge: [
+        "Quy trình xuất bản truyền thống tạo tài nguyên tĩnh riêng cho từng đầu sách, làm chậm tiến độ ra mắt và khiến tính năng tương tác khó bảo trì.",
+        "Nền tảng phải hỗ trợ nội dung nặng về media, localization theo từng chương trình học, và trải nghiệm học tập nhất quán mà không tách codebase cho từng cuốn sách.",
+        "Quy trình triển khai cần mở rộng cho nhà xuất bản nhưng vẫn giữ authoring, QA và release ổn định.",
+      ],
+      approach: [
+        "Thiết kế hệ thống component React và content model có thể tái sử dụng để các mẫu học tập chung được cấu hình theo từng đầu sách thay vì viết lại từ đầu.",
+        "Xây dựng quiz, hotspots và mini-games thành các module lắp ghép với data contract và hành vi render nhất quán.",
+        "Tối ưu tải tài nguyên, quá trình render và pipeline triển khai để xử lý media lớn và hỗ trợ xuất bản tự động trên hạ tầng cloud.",
+      ],
+      impact: [
+        "Cho phép tạo ra 100+ biến thể sách tương tác trên cùng một nền tảng dùng chung.",
+        "Giảm thời gian tải trung bình của các trang nhiều nội dung từ 5.6-10 giây xuống dưới 1.2 giây.",
+        "Cải thiện mức độ tương tác của học sinh trong giai đoạn kiểm thử và giảm ma sát khi phát hành đầu sách mới.",
+      ],
+    },
   },
   {
     id: "docmed-pom",
@@ -53,6 +70,29 @@ export const projectsVi: ProjectEntry[] = [
       "Zustand",
       "TanStack Query",
     ],
+    caseStudy: {
+      challenge: [
+        "Sản phẩm cần trải nghiệm tìm kiếm nhanh và chính xác cho danh mục y tế phức tạp, đơn thuốc và các bộ lọc chuyên biệt.",
+        "Các đợt bảo trì production phải diễn ra an toàn mà không phụ thuộc vào cách chặn hạ tầng rủi ro.",
+        "Khi traffic và danh mục tăng lên, hiệu năng frontend và chi phí Algolia đều trở thành vấn đề vận hành cần kiểm soát.",
+      ],
+      approach: [
+        "Thiết kế lại kiến trúc tìm kiếm dựa trên Algolia index, ranking strategy và query design phù hợp với việc khám phá danh mục y tế.",
+        "Áp dụng lazy loading, code splitting và tối ưu tài nguyên để giảm chi phí tải ban đầu của ứng dụng web.",
+        "Thiết kế cơ chế maintenance mode ở tầng ứng dụng để business và DevOps có thể phối hợp release an toàn hơn.",
+      ],
+      impact: [
+        "Giảm độ trễ tìm kiếm từ khoảng 1.8 giây xuống dưới 200 mili giây.",
+        "Cải thiện thời gian tải trang 55% trên các luồng sử dụng quan trọng.",
+        "Tối ưu hiệu quả sử dụng gói Algolia premium trong khi vẫn đảm bảo tính sẵn sàng cho các nghiệp vụ quan trọng.",
+      ],
+      media: [
+        {
+          src: "/project/docmed/607052363_4656996827860779_391351012101964168_n.jpg",
+          alt: "Tổng quan giao diện nền tảng DOCMED",
+        },
+      ],
+    },
   },
   {
     id: "caskx-exchange",
@@ -75,6 +115,23 @@ export const projectsVi: ProjectEntry[] = [
       "PostgreSQL",
       "AWS (ECS, RDS, CloudFront, ALB)",
     ],
+    caseStudy: {
+      challenge: [
+        "Nền tảng cần hỗ trợ luồng đầu tư B2B và B2C đáng tin cậy, khả năng theo dõi danh mục và các dịch vụ backend xử lý nhiều giao dịch.",
+        "Dữ liệu tài sản và giao dịch tài chính phải ổn định khi hệ thống mở rộng.",
+        "Hạ tầng cloud cần đủ bền vững để mang lại trải nghiệm ở mức sản phẩm tài chính chuyên nghiệp.",
+      ],
+      approach: [
+        "Thiết kế kiến trúc full-stack tách bạch journey của marketplace, luồng danh mục và các domain service backend thông qua API rõ ràng.",
+        "Xây dựng các service NestJS và PostgreSQL để quản lý lịch sử giao dịch, bản ghi tài sản và vòng đời đầu tư.",
+        "Triển khai hạ tầng AWS với ECS, RDS, CloudFront và ALB, đồng thời tối ưu truy vấn và caching để cải thiện tốc độ phản hồi.",
+      ],
+      impact: [
+        "Hỗ trợ hàng nghìn giao dịch đầu tư và bản ghi tài sản trên cùng một nền tảng.",
+        "Giảm thời gian phản hồi API 40% nhờ tối ưu truy vấn và caching.",
+        "Tạo nền tảng production sẵn sàng cho việc mở rộng marketplace và danh mục đầu tư trong tương lai.",
+      ],
+    },
   },
   {
     id: "imotorbike",
@@ -99,6 +156,23 @@ export const projectsVi: ProjectEntry[] = [
       "TailwindCSS",
       "AWS",
     ],
+    caseStudy: {
+      challenge: [
+        "Marketplace phải xử lý hàng nghìn tin đăng trên mobile và desktop nhưng vẫn giữ trải nghiệm khám phá sản phẩm nhanh và rõ ràng.",
+        "Luồng danh mục xe và checkout cần hiệu năng tốt dù dữ liệu sản phẩm lớn và giàu thông tin.",
+        "SEO là kênh tăng trưởng quan trọng nên cấu trúc trang và hiệu năng đều phải được tối ưu.",
+      ],
+      approach: [
+        "Xây dựng nền tảng bằng Next.js với giao diện responsive trên Tailwind và các pattern tái sử dụng cho listing, search và checkout.",
+        "Triển khai bộ lọc và luồng tìm kiếm nâng cao để giảm thời gian người dùng tìm thấy xe phù hợp.",
+        "Tối ưu chiến lược render, metadata và cấu trúc trang để nâng cao khả năng hiển thị trên công cụ tìm kiếm.",
+      ],
+      impact: [
+        "Hỗ trợ 5,000+ tin đăng xe trong quy trình danh mục production.",
+        "Cải thiện hiệu quả khám phá sản phẩm 45%.",
+        "Tăng lượng truy cập từ tìm kiếm tự nhiên khoảng 30% trong khi vẫn giữ trải nghiệm ổn định trên nhiều thiết bị.",
+      ],
+    },
   },
   {
     id: "yma-construction",
@@ -128,6 +202,23 @@ export const projectsVi: ProjectEntry[] = [
       "PostgreSQL",
       "AWS Services",
     ],
+    caseStudy: {
+      challenge: [
+        "Doanh nghiệp cần một hệ thống vận hành thống nhất bao phủ tài chính, chấm công, quy trình xây dựng và đồng bộ dữ liệu với đối tác.",
+        "Frontend phải mở rộng được theo tập tính năng cấp doanh nghiệp ngày càng lớn và phục vụ nhiều tổ chức khác nhau.",
+        "Nhóm cần quy trình release và hạ tầng ổn định hơn cho các nghiệp vụ quan trọng.",
+      ],
+      approach: [
+        "Dẫn dắt nhóm frontend, xây dựng kiến trúc UI tái sử dụng bằng React và TypeScript, đồng thời chuẩn hóa pattern triển khai giữa các module.",
+        "Thiết lập quy trình CI/CD và quản lý hạ tầng AWS phục vụ release ở staging và production.",
+        "Phối hợp triển khai dashboard dữ liệu lớn và các module vận hành với backend dành cho đội nội bộ và đối tác.",
+      ],
+      impact: [
+        "Giảm khoảng 30% thời gian phát triển cho các tính năng frontend mới.",
+        "Tăng độ tin cậy của quy trình release nhờ pipeline triển khai tự động.",
+        "Giúp nền tảng phục vụ nhiều tổ chức đối tác với mức độ hiển thị vận hành nhất quán hơn.",
+      ],
+    },
   },
   {
     id: "comwork-waste",
@@ -155,6 +246,23 @@ export const projectsVi: ProjectEntry[] = [
       "PostgreSQL",
       "AWS Services",
     ],
+    caseStudy: {
+      challenge: [
+        "Hệ thống phải điều phối khối lượng lớn lịch hẹn giữa khách hàng, vận hành hiện trường và đội call center.",
+        "Quản lý cần dashboard rõ ràng để nắm nhu cầu dịch vụ và các điểm nghẽn vận hành nhanh chóng.",
+        "Vì đây là dự án cho khách hàng ngoài, frontend cần các pattern tái sử dụng để đẩy nhanh tốc độ delivery.",
+      ],
+      approach: [
+        "Xây dựng các tính năng lập lịch và quản lý lịch hẹn bám sát quy trình làm việc hàng ngày của call center.",
+        "Phát triển dashboard và các báo cáo trực quan dựa trên biểu đồ cho khối lượng dịch vụ và trạng thái vận hành.",
+        "Đầu tư vào các UI component tái sử dụng để các tính năng mới được triển khai nhanh và nhất quán hơn.",
+      ],
+      impact: [
+        "Hỗ trợ hàng nghìn yêu cầu dịch vụ mỗi tháng với quy trình điều phối có cấu trúc hơn.",
+        "Cải thiện khả năng quan sát hoạt động của call center và nhu cầu đặt lịch.",
+        "Tăng năng suất của đội phát triển nhờ giảm việc lặp lại khi xây UI.",
+      ],
+    },
   },
   {
     id: "vbms-building",
@@ -181,6 +289,23 @@ export const projectsVi: ProjectEntry[] = [
       "Golang",
       "PostgreSQL",
     ],
+    caseStudy: {
+      challenge: [
+        "Bộ phận quản lý tòa nhà cần theo dõi và điều khiển tập trung các thiết bị kết nối cùng với dữ liệu tiêu thụ tiện ích.",
+        "Dữ liệu vận hành phải được hiển thị gần thời gian thực để hữu ích cho việc giám sát và phản ứng.",
+        "Giao diện phải đủ dễ dùng cho nhân sự vận hành hàng ngày, đặc biệt trên các dashboard và biểu đồ.",
+      ],
+      approach: [
+        "Xây dựng dashboard giám sát phục vụ quản lý cơ sở vật chất với layout responsive và các biểu đồ giàu dữ liệu.",
+        "Triển khai các màn hình phân tích điện và nước bằng thành phần biểu đồ tương tác.",
+        "Cải thiện khả năng sử dụng thông qua việc chuẩn hóa tương tác và hành vi responsive cho các tác vụ giám sát chính.",
+      ],
+      impact: [
+        "Giúp đội quản lý có cái nhìn rõ ràng hơn về mức tiêu thụ điện và nước trong tòa nhà.",
+        "Cải thiện trải nghiệm sử dụng cho các tác vụ giám sát thiết bị và vận hành hàng ngày.",
+        "Tăng giá trị của nền tảng như một bề mặt điều khiển tập trung cho đội nội bộ.",
+      ],
+    },
   },
   {
     id: "vfs-finance",
@@ -203,5 +328,22 @@ export const projectsVi: ProjectEntry[] = [
       "MongoDB",
       "Docker",
     ],
+    caseStudy: {
+      challenge: [
+        "Đội tài chính cần cách nhanh hơn để nhập dữ liệu, tạo báo cáo và truyền đạt kết quả cho lãnh đạo.",
+        "Khối lượng dữ liệu lớn phải được chuyển thành dashboard dễ hiểu mà không làm chậm chu kỳ báo cáo.",
+        "Công việc chuẩn bị báo cáo thủ công đang tiêu tốn thời gian đáng ra nên dành cho phân tích.",
+      ],
+      approach: [
+        "Xây dựng dashboard tài chính và module báo cáo phục vụ trực tiếp nhu cầu của cấp điều hành và vận hành.",
+        "Tổ chức luồng trực quan hóa để dữ liệu tài chính sau khi import có thể được khám phá và trình bày nhanh hơn.",
+        "Tập trung vào các pattern UI thực dụng giúp đội nội bộ xử lý các tác vụ lặp lại dễ dàng hơn.",
+      ],
+      impact: [
+        "Giảm khoảng 40% thời gian chuẩn bị báo cáo thủ công.",
+        "Cải thiện khả năng quan sát tập dữ liệu tài chính lớn cho quản lý.",
+        "Rút ngắn thời gian từ dữ liệu nhập vào đến báo cáo sẵn sàng để trình bày.",
+      ],
+    },
   },
 ];

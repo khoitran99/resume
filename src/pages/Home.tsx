@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import ExecutiveSummary from "../components/ExecutiveSummary";
 import CoreStrengths from "../components/CoreStrengths";
@@ -9,6 +9,10 @@ import FloatingNav from "../components/ui/FloatingNav";
 import FloatingActions from "../components/ui/FloatingActions";
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    document.title = "Khoi Tran";
+  }, []);
+
   return (
     <>
       <FloatingNav />

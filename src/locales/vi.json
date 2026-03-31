@@ -81,12 +81,8 @@
     "title": "Kinh nghiệm làm việc"
   },
   "project": {
-    "notFound": "Không tìm thấy dự án",
     "backHome": "Về trang chủ",
     "backPortfolio": "Về trang Portfolio",
-    "overview": "Tổng quan",
-    "techStack": "Công nghệ sử dụng",
-    "contributions": "Đóng góp chính",
     "team": "Quy mô nhóm"
   },
   "cert": {

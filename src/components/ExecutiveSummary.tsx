@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const ExecutiveSummary: React.FC = () => {
@@ -7,13 +6,7 @@ const ExecutiveSummary: React.FC = () => {
   return (
     <section className="py-20 bg-transparent relative z-10">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px bg-slate-200 flex-1"></div>
             <h2 className="text-sm font-bold tracking-wider text-slate-400 uppercase">
@@ -50,7 +43,7 @@ const ExecutiveSummary: React.FC = () => {
               {t("summary.p3_3")}
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

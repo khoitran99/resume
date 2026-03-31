@@ -1,3 +1,21 @@
+export interface ProjectMediaEntry {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectLinkEntry {
+  label: string;
+  href: string;
+}
+
+export interface ProjectCaseStudy {
+  challenge: string[];
+  approach: string[];
+  impact: string[];
+  media?: ProjectMediaEntry[];
+  links?: ProjectLinkEntry[];
+}
+
 export interface ProjectEntry {
   id: string;
   title: string;
@@ -7,6 +25,7 @@ export interface ProjectEntry {
   summary: string;
   contributions: string[];
   techStack: string[];
+  caseStudy: ProjectCaseStudy;
 }
 
 export const projects: ProjectEntry[] = [
@@ -35,6 +54,23 @@ export const projects: ProjectEntry[] = [
       "GCS",
       "AWS",
     ],
+    caseStudy: {
+      challenge: [
+        "Traditional publishing workflows were producing static assets separately for each book, which slowed launches and made interactive features expensive to maintain.",
+        "The platform had to support media-heavy content, curriculum-specific localization, and a consistent learning experience without forking the codebase for every title.",
+        "Delivery needed to scale for publishers while keeping authoring, QA, and release operations predictable.",
+      ],
+      approach: [
+        "Designed a reusable React component system and content model so shared learning patterns could be configured per title instead of rebuilt from scratch.",
+        "Built quizzes, hotspots, and mini-games as composable modules with consistent data contracts and rendering behavior.",
+        "Optimized asset loading, rendering, and deployment workflows to support large media payloads and automated publishing across cloud environments.",
+      ],
+      impact: [
+        "Enabled generation of 100+ interactive book variants from a shared platform foundation.",
+        "Reduced average load time for rich pages from 5.6-10 seconds to under 1.2 seconds.",
+        "Improved student engagement during testing while reducing operational friction for new releases.",
+      ],
+    },
   },
   {
     id: "docmed-pom",
@@ -62,6 +98,29 @@ export const projects: ProjectEntry[] = [
       "Zustand",
       "TanStack Query",
     ],
+    caseStudy: {
+      challenge: [
+        "The product needed fast and accurate search across complex healthcare catalog data, prescription workflows, and business-specific filters.",
+        "Production maintenance windows had to be handled safely without relying on risky infrastructure-level blocking.",
+        "As traffic and catalog size grew, frontend performance and Algolia spend both became operational concerns.",
+      ],
+      approach: [
+        "Reworked the search architecture around Algolia indices, ranking strategy, and query design tailored to medical catalog discovery.",
+        "Introduced lazy loading, code splitting, and asset optimization to reduce the web app's initial load cost.",
+        "Designed application-level maintenance controls so business and DevOps teams could coordinate releases with less operational risk.",
+      ],
+      impact: [
+        "Dropped search latency from roughly 1.8 seconds to under 200 milliseconds.",
+        "Improved page load performance by 55% across key user flows.",
+        "Made the premium Algolia plan more efficient while protecting availability for business-critical operations.",
+      ],
+      media: [
+        {
+          src: "/project/docmed/607052363_4656996827860779_391351012101964168_n.jpg",
+          alt: "DOCMED platform interface overview",
+        },
+      ],
+    },
   },
   {
     id: "caskx-exchange",
@@ -84,6 +143,23 @@ export const projects: ProjectEntry[] = [
       "PostgreSQL",
       "AWS (ECS, RDS, CloudFront, ALB)",
     ],
+    caseStudy: {
+      challenge: [
+        "The marketplace needed to support trustworthy B2B and B2C investment flows, portfolio visibility, and transaction-heavy backend services.",
+        "Financial records and asset data had to remain reliable as the platform scaled.",
+        "The cloud foundation needed to be resilient enough for an institutional-style product experience.",
+      ],
+      approach: [
+        "Designed a full-stack architecture that separated marketplace journeys, portfolio workflows, and backend domain services behind clear APIs.",
+        "Built NestJS and PostgreSQL services to manage transaction history, asset records, and investment lifecycle events.",
+        "Provisioned scalable AWS infrastructure with ECS, RDS, CloudFront, and ALB, then optimized queries and caching for responsiveness.",
+      ],
+      impact: [
+        "Supported thousands of investment transactions and asset records on a single platform.",
+        "Reduced API response time by 40% through query tuning and caching improvements.",
+        "Established a production-ready foundation for future marketplace and portfolio growth.",
+      ],
+    },
   },
   {
     id: "imotorbike",
@@ -108,6 +184,23 @@ export const projects: ProjectEntry[] = [
       "TailwindCSS",
       "AWS",
     ],
+    caseStudy: {
+      challenge: [
+        "The marketplace had to handle thousands of listings across mobile and desktop while keeping product discovery clear and fast.",
+        "Vehicle catalog and checkout experiences needed strong performance despite large listing sets and rich product detail.",
+        "SEO mattered because organic search was a major acquisition channel.",
+      ],
+      approach: [
+        "Built the marketplace in Next.js with responsive Tailwind UI and reusable patterns for listings, search, and checkout.",
+        "Implemented advanced filtering and search flows to reduce time-to-discovery for buyers.",
+        "Optimized rendering strategy, metadata, and page structure for better search visibility and frontend performance.",
+      ],
+      impact: [
+        "Supported 5,000+ vehicle listings within production catalog workflows.",
+        "Improved product discovery efficiency by 45%.",
+        "Increased organic search traffic by around 30% while keeping the experience consistent across devices.",
+      ],
+    },
   },
   {
     id: "yma-construction",
@@ -137,6 +230,23 @@ export const projects: ProjectEntry[] = [
       "PostgreSQL",
       "AWS Services",
     ],
+    caseStudy: {
+      challenge: [
+        "The business needed a single operational system covering finance, timekeeping, construction workflows, and partner data synchronization.",
+        "Frontend delivery had to scale across a growing enterprise feature set used by multiple organizations.",
+        "The team needed stronger release discipline and infrastructure support for business-critical usage.",
+      ],
+      approach: [
+        "Led the frontend team, introduced reusable React and TypeScript UI architecture, and aligned implementation patterns across features.",
+        "Built CI/CD workflows and managed AWS infrastructure supporting staging and production releases.",
+        "Coordinated data-heavy dashboards and operational modules with backend services used by internal teams and external partners.",
+      ],
+      impact: [
+        "Reduced development time for new frontend features by around 30%.",
+        "Improved release reliability with automated deployment pipelines.",
+        "Helped the platform support multiple partner organizations with shared operational visibility.",
+      ],
+    },
   },
   {
     id: "comwork-waste",
@@ -164,6 +274,23 @@ export const projects: ProjectEntry[] = [
       "PostgreSQL",
       "AWS Services",
     ],
+    caseStudy: {
+      challenge: [
+        "The system had to coordinate large appointment volumes between customers, dispatch operations, and call-center teams.",
+        "Managers needed clear dashboards to understand service demand and operational bottlenecks quickly.",
+        "Because the project was delivered for an external client, the frontend needed reusable patterns to keep delivery efficient.",
+      ],
+      approach: [
+        "Built scheduling and appointment management features around the workflows used daily by call-center operators.",
+        "Developed dashboard views and chart-driven reporting for service volume, scheduling, and operational visibility.",
+        "Invested in reusable UI components so future features could be delivered faster and with more consistency.",
+      ],
+      impact: [
+        "Supported thousands of monthly service requests with more structured scheduling workflows.",
+        "Improved visibility into call-center operations and appointment demand.",
+        "Raised team productivity by reducing repeated UI implementation work.",
+      ],
+    },
   },
   {
     id: "vbms-building",
@@ -190,6 +317,23 @@ export const projects: ProjectEntry[] = [
       "Golang",
       "PostgreSQL",
     ],
+    caseStudy: {
+      challenge: [
+        "Building managers needed centralized visibility and control over connected devices and utility usage.",
+        "Operational data had to be surfaced in near real time to be useful for monitoring and response.",
+        "The interface needed to stay usable for day-to-day operational staff across dashboards and charts.",
+      ],
+      approach: [
+        "Built monitoring dashboards for facility management with responsive layouts and data-rich visualizations.",
+        "Implemented electricity and water analytics views using interactive charting components.",
+        "Improved usability by tightening interaction patterns and responsive behavior for common monitoring tasks.",
+      ],
+      impact: [
+        "Gave facility teams a clearer view of energy and water usage across the building.",
+        "Improved usability for device monitoring and day-to-day operations.",
+        "Strengthened the platform as a central control surface for internal management teams.",
+      ],
+    },
   },
   {
     id: "vfs-finance",
@@ -212,5 +356,22 @@ export const projects: ProjectEntry[] = [
       "MongoDB",
       "Docker",
     ],
+    caseStudy: {
+      challenge: [
+        "Finance teams needed a faster way to import data, build reports, and communicate results to leadership.",
+        "Large datasets had to be translated into accessible dashboards without slowing the reporting cycle.",
+        "Manual report preparation was consuming time that should have gone to analysis and decision-making.",
+      ],
+      approach: [
+        "Built financial dashboards and reporting modules tailored to executive and operational reporting needs.",
+        "Structured visualization flows so imported finance data could be explored and presented quickly.",
+        "Focused on pragmatic UI patterns that made repeated reporting tasks easier for internal teams.",
+      ],
+      impact: [
+        "Reduced manual report preparation time by around 40%.",
+        "Improved visibility into large financial datasets for management review.",
+        "Shortened the path from imported data to presentation-ready reporting.",
+      ],
+    },
   },
 ];

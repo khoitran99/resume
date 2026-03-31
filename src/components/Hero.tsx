@@ -1,9 +1,5 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
-import { Link } from "react-scroll";
-import Magnetic from "./ui/Magnetic";
 import {
   Mail,
   Phone,
@@ -17,136 +13,75 @@ import {
 import { RESUME_DOWNLOAD_NAME, RESUME_PDF_PATH } from "../constants/resume";
 
 const Hero: React.FC = () => {
-  const ref = useRef(null);
   const { t } = useTranslation();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
 
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]); // Reduced parallax distance to prevent issues
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    if (!section) return;
+
+    section.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+  };
 
   return (
-    <section
-      ref={ref}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-transparent"
-    >
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-transparent">
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            style={{ y: textY }}
-            className="flex flex-col items-center"
-          >
-            {/* Avatar Profile */}
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 z-20"
-            >
+          <div className="flex flex-col items-center">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 z-20">
               <img
                 src="/profile/AAEC2AC8-13D7-4BD3-BEA8-B58B1EDF3D05_1_105_c.jpeg"
                 alt="Khoi Tran"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
-            </motion.div>
+            </div>
 
-            {/* Animated Text Reveal */}
-            <div className="overflow-hidden mb-4 flex justify-center">
-              <motion.h2
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Custom ease for "editorial" feel
-                className="text-primary-600 font-bold tracking-widest uppercase text-sm"
-              >
+            <div className="mb-4 flex justify-center">
+              <h2 className="text-primary-600 font-bold tracking-widest uppercase text-sm">
                 {t("hero.role")}
-              </motion.h2>
+              </h2>
             </div>
 
-            <div className="overflow-hidden mb-6 flex justify-center h-28 md:h-40 items-center">
-              <motion.h1
-                initial={{ y: "150%" }}
-                animate={{ y: 0 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight leading-tight whitespace-nowrap"
-              >
-                <TypeAnimation
-                  sequence={[
-                    "Khoi Tran",
-                    2000,
-                    "Software Engineer",
-                    2000,
-                    "Senior Frontend Developer",
-                    2000,
-                    "Team Leader",
-                    2000,
-                    "Tech Savvy",
-                    2000,
-                    "AWS SA Pro",
-                    2000,
-                    "Certified PMP",
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-              </motion.h1>
+            <div className="mb-6 flex justify-center">
+              <h1 className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight leading-tight">
+                Khoi Tran
+              </h1>
             </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
-            >
+            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               {t(
                 "hero.description",
                 "Software Engineer & Team Leader | AWS Solutions Architect (Pro) | PMP | Cloud Architecture & Scalable Systems",
               )}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="flex flex-wrap justify-center gap-4 mb-10"
-            >
-              <Magnetic strength={20}>
-                <Link
-                  to="projects"
-                  smooth={true}
-                  duration={500}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white font-medium shadow-lg cursor-pointer hover:bg-primary-600 transition-colors"
-                >
-                  {t("hero.viewWork", "View My Work")}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Magnetic>
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
+              <button
+                type="button"
+                onClick={() => scrollToSection("projects")}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white font-medium shadow-lg cursor-pointer hover:bg-primary-600 transition-colors"
+              >
+                {t("hero.viewWork", "View My Work")}
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-              <Magnetic strength={20}>
-                <a
-                  href={RESUME_PDF_PATH}
-                  download={RESUME_DOWNLOAD_NAME}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/95 dark:bg-slate-900/95 border border-white/60 dark:border-slate-800 text-slate-900 dark:text-white font-medium shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-colors"
-                >
-                  {t("hero.downloadCv", "Download CV")}
-                  <Download className="w-4 h-4" />
-                </a>
-              </Magnetic>
-            </motion.div>
+              <a
+                href={RESUME_PDF_PATH}
+                download={RESUME_DOWNLOAD_NAME}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/95 dark:bg-slate-900/95 border border-white/60 dark:border-slate-800 text-slate-900 dark:text-white font-medium shadow-lg hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-colors"
+              >
+                {t("hero.downloadCv", "Download CV")}
+                <Download className="w-4 h-4" />
+              </a>
+            </div>
 
-            {/* Contact Info - Now inside the parallax wrapper */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto"
-            >
+            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
               {[
                 {
                   href: "mailto:khoitvhe130007@gmail.com",
@@ -171,60 +106,28 @@ const Hero: React.FC = () => {
                   label: "Personal Blog",
                 },
               ].map((item, idx) => (
-                <Magnetic key={idx} strength={10}>
-                  <a
-                    href={item.href}
-                    className="flex items-center gap-2 hover:text-primary-600 transition-colors group cursor-pointer py-2"
-                    target={
-                      item.href?.startsWith("http") ? "_blank" : undefined
-                    }
-                    rel={
-                      item.href?.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                  >
-                    {item.label === "GitHub" ? (
-                      <motion.div
-                        variants={{
-                          initial: { rotate: 0 },
-                          hover: {
-                            rotate: [0, -15, 10, -10, 5, 0],
-                            transition: { duration: 0.5, ease: "easeInOut" },
-                          },
-                        }}
-                        initial="initial"
-                        whileHover="hover"
-                        className="flex items-center justify-center p-1 -m-1"
-                      >
-                        <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                      </motion.div>
-                    ) : (
-                      <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                    )}
-                    <span className="relative font-medium shadow-sm">
-                      {item.label}
-                      <span className="absolute left-0 -bottom-1 w-0 h-px bg-primary-600 transition-all group-hover:w-full"></span>
-                    </span>
-                  </a>
-                </Magnetic>
+                <a
+                  key={idx}
+                  href={item.href}
+                  className="flex items-center gap-2 hover:text-primary-600 transition-colors group py-2"
+                  target={item.href?.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    item.href?.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <item.icon className="w-5 h-5" />
+                  <span className="relative font-medium shadow-sm">
+                    {item.label}
+                    <span className="absolute left-0 -bottom-1 w-0 h-px bg-primary-600 transition-all group-hover:w-full"></span>
+                  </span>
+                </a>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ duration: 2, delay: 1, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400"
-      >
-        <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-slate-400 rounded-full" />
-        </div>
-      </motion.div>
     </section>
   );
 };

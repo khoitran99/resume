@@ -81,12 +81,8 @@
     "title": "Professional Experience"
   },
   "project": {
-    "notFound": "Project Not Found",
     "backHome": "Back to Home",
     "backPortfolio": "Back to Portfolio",
-    "overview": "Overview",
-    "techStack": "Technology Stack",
-    "contributions": "Key Contributions",
     "team": "Team size"
   },
   "cert": {

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import {
   GraduationCap,
   Award,
@@ -14,21 +13,6 @@ import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 import { useTranslation } from "react-i18next";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
-
 const Education: React.FC = () => {
   const { t, i18n } = useTranslation();
   const currentCertifications =
@@ -38,19 +22,10 @@ const Education: React.FC = () => {
     <section className="py-24 bg-transparent relative overflow-hidden">
       <ParallaxBackgroundText text={t("education.title")} speed={-0.1} />
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="max-w-6xl mx-auto"
-        >
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Education */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
-            >
+            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <GraduationCap className="w-5 h-5" />
@@ -71,13 +46,10 @@ const Education: React.FC = () => {
                   2017 – 2021
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Certifications - Now Dynamic */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300"
-            >
+            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <Award className="w-5 h-5" />
@@ -89,10 +61,7 @@ const Education: React.FC = () => {
 
               <ul className="space-y-4 grow">
                 {currentCertifications.map((cert) => (
-                  <motion.li
-                    key={cert.id}
-                    layoutId={`cert-container-${cert.id}`}
-                  >
+                  <li key={cert.id}>
                     <Link
                       to={`/certification/${cert.id}`}
                       className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:shadow-sm transition-all cursor-pointer"
@@ -105,16 +74,13 @@ const Education: React.FC = () => {
                       </div>
                       <ArrowRight className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                     </Link>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
             {/* Languages */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-500/50 transition-all duration-300 h-full"
-            >
+            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <Globe className="w-5 h-5" />
@@ -142,20 +108,17 @@ const Education: React.FC = () => {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-left text-white relative overflow-hidden group"
-          >
+          <div className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-left text-white relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
               <div className="absolute top-[0%] left-[-10%] w-[50%] h-[150%] bg-white dark:bg-slate-900 dark:border-slate-800 transform rotate-12 transition-transform duration-1000 group-hover:rotate-6"></div>
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm shrink-0">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
                   <BookOpen className="w-6 h-6 text-white" />
                 </div>
                 <MaskedHeading
@@ -198,8 +161,8 @@ const Education: React.FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
