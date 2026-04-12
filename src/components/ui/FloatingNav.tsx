@@ -84,7 +84,7 @@ const FloatingNav: React.FC = () => {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
       {navItems.map((item) => {
         const isActive = activeSection === item.id;
         const Icon = item.icon;
