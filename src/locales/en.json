@@ -7,7 +7,7 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "role": "Senior Frontend Developer",
+    "role": "Senior Full-Stack Engineer",
     "description": "Software Engineer | Team Leader | Tech Savvy | AWS SA Pro | Certified PMP",
     "viewWork": "View My Work",
     "downloadCv": "Download CV",
@@ -16,7 +16,7 @@
   "summary": {
     "title": "Executive Summary",
     "p1_1": "Senior Full-Stack Engineer with",
-    "p1_2": "~5 years",
+    "p1_2": "6+ years",
     "p1_3": "of professional experience delivering enterprise-grade and consumer-scale web platforms across",
     "p1_4": "FinTech, HealthTech, EdTech, Investment, Construction, E-commerce, and Enterprise Systems",
     "p2_1": "Strong specialization in",

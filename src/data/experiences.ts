@@ -33,7 +33,7 @@ export const projects: ProjectEntry[] = [
     id: "kiera-edtech",
     title: "KIERA - Interactive Digital Publishing Platform",
     role: "Senior Frontend Developer",
-    period: "October 2025- Present",
+    period: "October 2025- March 2026",
     teamSize: "10",
     summary:
       "KIERA is a scalable content engine that transforms static educational materials into interactive digital books, enabling publishers to generate hundreds of unique titles from a single platform.",
@@ -76,7 +76,7 @@ export const projects: ProjectEntry[] = [
     id: "docmed-pom",
     title: "DOCMED - Healthcare Digital Platform",
     role: "Senior Frontend / Full-Stack Developer",
-    period: "January 2025- October 2025",
+    period: "November 2024- November 2025",
     teamSize: "20+",
     summary:
       "DOCMED is a healthcare ecosystem designed to support doctors with digital prescriptions, clinic supply purchasing, and professional networking services.",
@@ -161,47 +161,7 @@ export const projects: ProjectEntry[] = [
       ],
     },
   },
-  {
-    id: "imotorbike",
-    title: "iMotorbike - E-commerce Platform",
-    role: "Full-Stack Developer",
-    period: "October 2023- June 2024",
-    teamSize: "20+",
-    summary:
-      "A digital marketplace that connects buyers and sellers of secondhand motorcycles, enabling users to search, compare, and purchase vehicles with integrated inventory management and secure transaction workflows. Developed a Next.js-based e-commerce platform supporting product catalog, checkout, and user profiles.",
-    contributions: [
-      "Developed scalable Next.js e-commerce platform supporting 5,000+ vehicle listings.",
-      "Built advanced filtering and search functionality improving product discovery efficiency by 45%.",
-      "Implemented responsive UI using TailwindCSS supporting mobile and desktop traffic with consistent performance.",
-      "Optimized page rendering and SEO improving organic search traffic by ~30%.",
-      "Integrated backend services for catalog management, order workflows, and user profiles.",
-    ],
-    techStack: [
-      "Next.js",
-      "Node.js",
-      "PostgreSQL",
-      "Medusa.js",
-      "TailwindCSS",
-      "AWS",
-    ],
-    caseStudy: {
-      challenge: [
-        "The marketplace had to handle thousands of listings across mobile and desktop while keeping product discovery clear and fast.",
-        "Vehicle catalog and checkout experiences needed strong performance despite large listing sets and rich product detail.",
-        "SEO mattered because organic search was a major acquisition channel.",
-      ],
-      approach: [
-        "Built the marketplace in Next.js with responsive Tailwind UI and reusable patterns for listings, search, and checkout.",
-        "Implemented advanced filtering and search flows to reduce time-to-discovery for buyers.",
-        "Optimized rendering strategy, metadata, and page structure for better search visibility and frontend performance.",
-      ],
-      impact: [
-        "Supported 5,000+ vehicle listings within production catalog workflows.",
-        "Improved product discovery efficiency by 45%.",
-        "Increased organic search traffic by around 30% while keeping the experience consistent across devices.",
-      ],
-    },
-  },
+
   {
     id: "yma-construction",
     title: "YMA - Construction Project Management System",

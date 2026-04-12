@@ -30,7 +30,8 @@ function ScrollManager() {
 
       if (target) {
         target.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
             ? "auto"
             : "smooth",
           block: "start",
@@ -64,7 +65,9 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route
           path="/project/:id"
-          element={<Navigate to={{ pathname: "/", hash: "#projects" }} replace />}
+          element={
+            <Navigate to={{ pathname: "/", hash: "#projects" }} replace />
+          }
         />
         <Route path="/certification/:id" element={<CertificationDetail />} />
       </Routes>

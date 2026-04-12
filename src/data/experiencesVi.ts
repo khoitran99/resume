@@ -5,7 +5,7 @@ export const projectsVi: ProjectEntry[] = [
     id: "kiera-edtech",
     title: "KIERA - Nền tảng xuất bản số tương tác",
     role: "Lập trình viên Frontend cấp cao",
-    period: "Tháng 10/2025 - Hiện tại",
+    period: "Tháng 10/2025 - Tháng 03/2026",
     teamSize: "10",
     summary:
       "KIERA là một content engine có khả năng mở rộng, biến tài liệu giáo dục tĩnh thành các cuốn sách số tương tác, cho phép nhà xuất bản tạo ra hàng trăm đầu sách khác nhau trên cùng một nền tảng.",
@@ -48,7 +48,7 @@ export const projectsVi: ProjectEntry[] = [
     id: "docmed-pom",
     title: "DOCMED - Nền tảng số cho lĩnh vực y tế",
     role: "Lập trình viên Frontend / Full-Stack cấp cao",
-    period: "Tháng 1/2025 - Tháng 10/2025",
+    period: "Tháng 11/2024 - Tháng 11/2025",
     teamSize: "20+",
     summary:
       "DOCMED là một hệ sinh thái y tế được thiết kế để hỗ trợ bác sĩ với đơn thuốc số, mua sắm vật tư phòng khám và các dịch vụ kết nối chuyên môn.",
@@ -133,47 +133,7 @@ export const projectsVi: ProjectEntry[] = [
       ],
     },
   },
-  {
-    id: "imotorbike",
-    title: "iMotorbike - Nền tảng thương mại điện tử",
-    role: "Lập trình viên Full-Stack",
-    period: "Tháng 10/2023 - Tháng 6/2024",
-    teamSize: "20+",
-    summary:
-      "Đây là một sàn giao dịch số kết nối người mua và người bán xe máy cũ, giúp người dùng tìm kiếm, so sánh và mua xe với quy trình quản lý tồn kho tích hợp và giao dịch an toàn. Tôi đã phát triển nền tảng e-commerce dựa trên Next.js hỗ trợ product catalog, checkout và user profile.",
-    contributions: [
-      "Phát triển nền tảng e-commerce Next.js có khả năng mở rộng, hỗ trợ 5,000+ tin đăng xe.",
-      "Xây dựng bộ lọc và tính năng tìm kiếm nâng cao, cải thiện hiệu quả khám phá sản phẩm 45%.",
-      "Triển khai giao diện responsive bằng TailwindCSS, hỗ trợ lượng truy cập trên mobile và desktop với hiệu năng ổn định.",
-      "Tối ưu render trang và SEO, giúp tăng lượng truy cập từ tìm kiếm tự nhiên khoảng ~30%.",
-      "Tích hợp các dịch vụ backend cho quản lý danh mục, quy trình đặt hàng và user profile.",
-    ],
-    techStack: [
-      "Next.js",
-      "Node.js",
-      "PostgreSQL",
-      "Medusa.js",
-      "TailwindCSS",
-      "AWS",
-    ],
-    caseStudy: {
-      challenge: [
-        "Marketplace phải xử lý hàng nghìn tin đăng trên mobile và desktop nhưng vẫn giữ trải nghiệm khám phá sản phẩm nhanh và rõ ràng.",
-        "Luồng danh mục xe và checkout cần hiệu năng tốt dù dữ liệu sản phẩm lớn và giàu thông tin.",
-        "SEO là kênh tăng trưởng quan trọng nên cấu trúc trang và hiệu năng đều phải được tối ưu.",
-      ],
-      approach: [
-        "Xây dựng nền tảng bằng Next.js với giao diện responsive trên Tailwind và các pattern tái sử dụng cho listing, search và checkout.",
-        "Triển khai bộ lọc và luồng tìm kiếm nâng cao để giảm thời gian người dùng tìm thấy xe phù hợp.",
-        "Tối ưu chiến lược render, metadata và cấu trúc trang để nâng cao khả năng hiển thị trên công cụ tìm kiếm.",
-      ],
-      impact: [
-        "Hỗ trợ 5,000+ tin đăng xe trong quy trình danh mục production.",
-        "Cải thiện hiệu quả khám phá sản phẩm 45%.",
-        "Tăng lượng truy cập từ tìm kiếm tự nhiên khoảng 30% trong khi vẫn giữ trải nghiệm ổn định trên nhiều thiết bị.",
-      ],
-    },
-  },
+
   {
     id: "yma-construction",
     title: "YMA - Hệ thống quản lý dự án xây dựng",
