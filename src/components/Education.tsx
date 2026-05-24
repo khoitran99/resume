@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
+import SpotlightCard from "./ui/SpotlightCard";
 import { useTranslation } from "react-i18next";
 import { useLocalizedCertifications } from "../hooks/useLocalizedData";
 
@@ -22,7 +23,7 @@ const Education: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Education */}
-            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors h-full">
+            <SpotlightCard className="p-8 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <GraduationCap className="w-5 h-5" />
@@ -56,41 +57,43 @@ const Education: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Certifications - Now Dynamic */}
-            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg h-full flex flex-col hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
-                  <Award className="w-5 h-5" />
+            <SpotlightCard className="p-8 h-full">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">
+                    {t("education.certifications")}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">
-                  {t("education.certifications")}
-                </h3>
-              </div>
 
-              <ul className="space-y-4 grow">
-                {currentCertifications.map((cert) => (
-                  <li key={cert.id}>
-                    <Link
-                      to={`/certification/${cert.id}`}
-                      className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:shadow-sm transition-all cursor-pointer"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary-400 rounded-full group-hover:bg-primary-600 transition-colors"></div>
-                        <span className="text-slate-700 dark:text-slate-300 font-medium text-sm group-hover:text-primary-700 transition-colors">
-                          {cert.title}
-                        </span>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="space-y-4 grow">
+                  {currentCertifications.map((cert) => (
+                    <li key={cert.id}>
+                      <Link
+                        to={`/certification/${cert.id}`}
+                        className="flex items-center justify-between group p-2 -mx-2 rounded-lg hover:bg-white dark:bg-slate-900 dark:border-slate-800 hover:shadow-sm transition-all cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-primary-400 rounded-full group-hover:bg-primary-600 transition-colors"></div>
+                          <span className="text-slate-700 dark:text-slate-300 font-medium text-sm group-hover:text-primary-700 transition-colors">
+                            {cert.title}
+                          </span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </SpotlightCard>
 
             {/* Languages */}
-            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors h-full">
+            <SpotlightCard className="p-8 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-lg flex items-center justify-center shadow-sm text-primary-600">
                   <Globe className="w-5 h-5" />
@@ -118,7 +121,7 @@ const Education: React.FC = () => {
                   </span>
                 </li>
               </ul>
-            </div>
+            </SpotlightCard>
           </div>
 
           <div className="mt-12 bg-primary-600 rounded-2xl p-8 md:p-12 text-left text-white relative overflow-hidden group">

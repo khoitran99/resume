@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedCertifications } from "../hooks/useLocalizedData";
+import SpotlightCard from "../components/ui/SpotlightCard";
 
 const CertificationDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -53,8 +54,8 @@ const CertificationDetail: React.FC = () => {
         <div className="container mx-auto px-4 max-w-4xl bg-white/95 dark:bg-slate-900/95 rounded-3xl p-8 border border-white/60 dark:border-slate-800 shadow-xl">
           {/* Header Section */}
           <div className="flex flex-col items-center gap-8 mb-12">
-            <div
-              className="w-full max-w-3xl bg-white/95 dark:bg-slate-900/95 p-4 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 cursor-pointer transition-transform hover:scale-[1.02]"
+            <SpotlightCard
+              className="w-full max-w-3xl p-4 cursor-pointer hover:scale-[1.02] transition-transform"
               onClick={() => setIsModalOpen(true)}
             >
               <div className="aspect-4/3 bg-slate-50 dark:bg-slate-800/50 rounded-xl overflow-hidden relative flex items-center justify-center">
@@ -69,7 +70,7 @@ const CertificationDetail: React.FC = () => {
                   }}
                 />
               </div>
-            </div>
+            </SpotlightCard>
 
             <div className="w-full text-center flex flex-col items-center">
               <div className="flex items-center gap-2 text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">
@@ -100,11 +101,11 @@ const CertificationDetail: React.FC = () => {
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center md:text-left">
               {t("cert.overview")}
             </h2>
-            <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl border border-white/60 dark:border-slate-800 shadow-lg">
+            <SpotlightCard className="p-8">
               <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                 {cert.description}
               </p>
-            </div>
+            </SpotlightCard>
           </section>
 
           {/* Skills Validation */}
@@ -114,17 +115,16 @@ const CertificationDetail: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {cert.skills.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/95 dark:bg-slate-900/95 p-4 rounded-xl border border-white/60 dark:border-slate-800 shadow-md flex items-center gap-3 hover:border-primary-200 dark:hover:border-primary-500/50 hover:shadow-lg transition-all"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 shrink-0">
-                    <CheckCircle className="w-4 h-4" />
+                <SpotlightCard key={idx} className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 shrink-0">
+                      <CheckCircle className="w-4 h-4" />
+                    </div>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                      {skill}
+                    </span>
                   </div>
-                  <span className="font-medium text-slate-700 dark:text-slate-300">
-                    {skill}
-                  </span>
-                </div>
+                </SpotlightCard>
               ))}
             </div>
           </section>

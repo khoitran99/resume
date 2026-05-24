@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
 import { Layers, Server, Cloud, Code2, GitMerge, Users } from "lucide-react";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
+import SpotlightCard from "./ui/SpotlightCard";
 
 const getStrengths = (t: TFunction) => [
   {
@@ -52,20 +53,17 @@ const CoreStrengths: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {strengths.map((strength, index) => (
-              <div
-                key={index}
-                className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl shadow-lg border border-slate-500/20 group relative overflow-hidden transition-colors hover:border-primary-200 dark:hover:border-primary-500/50"
-              >
-                <div className="w-14 h-14 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:bg-primary-600 group-hover:text-white transition-colors relative z-10">
+              <SpotlightCard key={index} className="p-8 group">
+                <div className="w-14 h-14 bg-white dark:bg-slate-900 dark:border-slate-800 rounded-2xl flex items-center justify-center text-primary-600 mb-6 shadow-sm border border-slate-100 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                   {strength.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3 relative z-10">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3">
                   {strength.title}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   {strength.description}
                 </p>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>

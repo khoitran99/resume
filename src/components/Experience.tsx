@@ -2,6 +2,7 @@ import React from "react";
 import { Calendar } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
+import SpotlightCard from "./ui/SpotlightCard";
 import { useLocalizedProjects } from "../hooks/useLocalizedData";
 
 const Experience: React.FC = () => {
@@ -42,7 +43,7 @@ const Experience: React.FC = () => {
                 >
                   {/* Content Card */}
                   <div className="w-full md:w-[calc(50%-2rem)]">
-                    <div className="bg-white/95 dark:bg-slate-900/95 p-8 rounded-2xl shadow-lg border border-white/60 dark:border-slate-800 hover:border-primary-200 dark:hover:border-primary-500/50 transition-colors relative group-hover:bg-white/90 dark:group-hover:bg-slate-800/90">
+                    <SpotlightCard className="p-8">
                       {/* Mobile Timeline Dot/Line */}
                       <div className="md:hidden absolute -left-8 top-8 w-4 h-4 rounded-full bg-primary-100 border-2 border-primary-500 z-10 box-content"></div>
                       <div className="md:hidden absolute -left-6.75 top-10 -bottom-12.5 w-px bg-slate-200 last:hidden"></div>
@@ -96,7 +97,7 @@ const Experience: React.FC = () => {
                           </span>
                         ))}
                       </div>
-                    </div>
+                    </SpotlightCard>
                   </div>
 
                   {/* Empty space for alignment - crucial for alternating layout */}
