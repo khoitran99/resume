@@ -9,57 +9,47 @@ interface ThemeContextType {
   setTheme: (theme: ThemeType) => void;
 }
 
+const STORAGE_KEY = "portfolio-theme";
+
+function isValidTheme(v: string | null): v is ThemeType {
+  return v === "light" || v === "dark";
+}
+
+function useThemeStorage(): [ThemeType, (t: ThemeType) => void] {
+  const [theme, setTheme] = useState<ThemeType>(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return isValidTheme(saved) ? saved : "light";
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const handler = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY && isValidTheme(e.newValue)) {
+        setTheme(e.newValue);
+      }
+    };
+    window.addEventListener("storage", handler);
+    return () => window.removeEventListener("storage", handler);
+  }, []);
+
+  return [theme, setTheme];
+}
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // Initialize from localStorage or default to 'light'
-  const [theme, setThemeState] = useState<ThemeType>(() => {
-    const saved = localStorage.getItem("portfolio-theme");
-    if (saved === "light" || saved === "dark") {
-      return saved as ThemeType;
-    }
-    return "light"; // Default to light mode
-  });
-
-  const applyTheme = (newTheme: ThemeType) => {
-    const root = document.documentElement;
-    if (newTheme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  };
+  const [theme, setTheme] = useThemeStorage();
 
   useEffect(() => {
-    applyTheme(theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  const setTheme = (newTheme: ThemeType) => {
-    setThemeState(newTheme);
-    localStorage.setItem("portfolio-theme", newTheme);
-    applyTheme(newTheme);
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  // Optional: Listen for storage events if user has multiple tabs open
-  useEffect(() => {
-    const handleStorageChange = (e: StorageEvent) => {
-      if (
-        e.key === "portfolio-theme" &&
-        (e.newValue === "light" || e.newValue === "dark")
-      ) {
-        setThemeState(e.newValue as ThemeType);
-        applyTheme(e.newValue as ThemeType);
-      }
-    };
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>

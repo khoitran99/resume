@@ -42,12 +42,6 @@ const Hero: React.FC = () => {
               />
             </div>
 
-            <div className="mb-4 flex justify-center">
-              <h2 className="text-primary-600 font-bold tracking-widest uppercase text-sm">
-                {t("hero.role")}
-              </h2>
-            </div>
-
             <div className="mb-6 flex justify-center">
               <h1 className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 pb-2 tracking-tight leading-tight">
                 Khoi Tran

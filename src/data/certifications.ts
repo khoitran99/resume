@@ -62,6 +62,23 @@ export const certifications: Certification[] = [
     ],
   },
   {
+    id: "aws-saa",
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2023",
+    image: "/cert/1761378770930.png",
+    description:
+      "The AWS Certified Solutions Architect – Associate validates the ability to design and deploy scalable, highly available, and fault-tolerant systems on AWS. It demonstrates competency in selecting the appropriate AWS services based on technical requirements, defining architectural best practices, and designing cost-effective solutions for common use cases across compute, storage, networking, and database layers.",
+    skills: [
+      "Scalable & Resilient Architecture Design",
+      "Cost-Optimized Solution Planning",
+      "AWS Compute, Storage & Networking Services",
+      "High Availability & Fault Tolerance Patterns",
+      "Security & IAM Best Practices",
+      "Migration & Deployment Strategies",
+    ],
+  },
+  {
     id: "pmi-pmp",
     title: "Project Management Professional (PMP)",
     issuer: "Project Management Institute (PMI)",

@@ -1,12 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import type { TFunction } from "i18next";
 import { Code, Database, Server, Cloud, Terminal, Bot } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
-import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
-const getTechnologies = (t: TFunction) => [
+const getTechnologies = () => [
   {
     category: "Languages",
     icon: <Code className="w-5 h-5" />,
@@ -85,7 +83,7 @@ const getTechnologies = (t: TFunction) => [
     ],
   },
   {
-    category: "Testing & Tools",
+    category: "Testing",
     icon: <Bot className="w-5 h-5" />,
     skills: [
       "Jest",
@@ -93,6 +91,12 @@ const getTechnologies = (t: TFunction) => [
       "Playwright",
       "Supertest",
       "Testcontainers",
+    ],
+  },
+  {
+    category: "AI Coding Assistants",
+    icon: <Bot className="w-5 h-5" />,
+    skills: [
       "Cursor",
       "Claude Code",
       "Codex",
@@ -103,7 +107,7 @@ const getTechnologies = (t: TFunction) => [
 
 const TechStack: React.FC = () => {
   const { t } = useTranslation();
-  const technologies = getTechnologies(t);
+  const technologies = getTechnologies();
 
   return (
     <section className="py-24 bg-transparent relative z-10 overflow-hidden">
@@ -111,16 +115,12 @@ const TechStack: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <MaskedHeading
-              element="h2"
-              text={t("expertise.subtitle")}
-              className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-3 justify-center"
-            />
-            <MaskedHeading
-              element="h3"
-              text={t("expertise.title")}
-              className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 justify-center"
-            />
+            <h2 className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-3 justify-center">
+              {t("expertise.subtitle")}
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 justify-center">
+              {t("expertise.title")}
+            </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

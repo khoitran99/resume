@@ -53,6 +53,23 @@ export const certificationsVi: Certification[] = [
     ],
   },
   {
+    id: "aws-saa",
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2023",
+    image: "/cert/1761378770930.png",
+    description:
+      "Chứng chỉ AWS Certified Solutions Architect – Associate xác nhận khả năng thiết kế và triển khai các hệ thống có thể mở rộng, tính sẵn sàng cao và khả năng chịu lỗi trên AWS. Nó chứng minh năng lực lựa chọn dịch vụ AWS phù hợp dựa trên yêu cầu kỹ thuật, xác định các phương pháp kiến trúc tốt nhất và thiết kế giải pháp tiết kiệm chi phí cho các trường hợp sử dụng phổ biến trên các lớp tính toán, lưu trữ, mạng và cơ sở dữ liệu.",
+    skills: [
+      "Thiết kế kiến trúc có thể mở rộng & khả năng phục hồi cao",
+      "Lập kế hoạch giải pháp tối ưu chi phí",
+      "Dịch vụ Compute, Storage & Networking của AWS",
+      "Mẫu tính sẵn sàng cao & khả năng chịu lỗi",
+      "Bảo mật & các phương pháp tốt nhất của IAM",
+      "Chiến lược di chuyển & triển khai",
+    ],
+  },
+  {
     id: "pmi-pmp",
     title: "Project Management Professional (PMP)",
     issuer: "Project Management Institute (PMI)",

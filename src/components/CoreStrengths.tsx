@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
 import { Layers, Server, Cloud, Code2, GitMerge, Users } from "lucide-react";
-import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 
 const getStrengths = (t: TFunction) => [
@@ -47,11 +46,9 @@ const CoreStrengths: React.FC = () => {
       <ParallaxBackgroundText text={t("strengths.bgText")} speed={-0.15} />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <MaskedHeading
-            element="h2"
-            text={t("strengths.title")}
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-slate-100 justify-center w-full"
-          />
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-slate-100 justify-center w-full">
+            {t("strengths.title")}
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {strengths.map((strength, index) => (

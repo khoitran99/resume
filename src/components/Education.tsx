@@ -7,16 +7,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { certifications } from "../data/certifications";
-import { certificationsVi } from "../data/certificationsVi";
-import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
 import { useTranslation } from "react-i18next";
+import { useLocalizedCertifications } from "../hooks/useLocalizedData";
 
 const Education: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const currentCertifications =
-    i18n.language === "vi" ? certificationsVi : certifications;
+  const { t } = useTranslation();
+  const currentCertifications = useLocalizedCertifications();
 
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
@@ -35,16 +32,29 @@ const Education: React.FC = () => {
                 </h3>
               </div>
 
-              <div>
-                <h4 className="font-bold text-slate-900 dark:text-slate-100">
-                  FPT University – Hanoi
-                </h4>
-                <p className="text-primary-600 text-sm font-medium mb-2">
-                  {t("education.degree")}
-                </p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm">
-                  2017 – 2021
-                </p>
+              <div className="space-y-5">
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100">
+                    FPT University – Hanoi
+                  </h4>
+                  <p className="text-primary-600 text-sm font-medium mb-1">
+                    {t("education.degree")}
+                  </p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">
+                    2017 – 2021
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100">
+                    FSB – FPT School of Business & Technology
+                  </h4>
+                  <p className="text-primary-600 text-sm font-medium mb-1">
+                    {t("education.masterDegree")}
+                  </p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">
+                    2024 – 2026
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -121,11 +131,9 @@ const Education: React.FC = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
                   <BookOpen className="w-6 h-6 text-white" />
                 </div>
-                <MaskedHeading
-                  element="h3"
-                  text={t("education.careerTitle")}
-                  className="text-3xl font-bold"
-                />
+                <h3 className="text-3xl font-bold">
+                  {t("education.careerTitle")}
+                </h3>
               </div>
 
               <div className="space-y-6 text-primary-50 text-lg leading-relaxed">

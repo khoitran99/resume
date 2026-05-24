@@ -1,14 +1,12 @@
 import React from "react";
 import { Calendar } from "lucide-react";
-import { projects } from "../data/experiences";
-import { projectsVi } from "../data/experiencesVi";
 import { useTranslation } from "react-i18next";
-import MaskedHeading from "./ui/MaskedHeading";
 import ParallaxBackgroundText from "./ui/ParallaxBackgroundText";
+import { useLocalizedProjects } from "../hooks/useLocalizedData";
 
 const Experience: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const currentProjects = i18n.language === "vi" ? projectsVi : projects;
+  const { t } = useTranslation();
+  const currentProjects = useLocalizedProjects();
 
   return (
     <section className="py-24 bg-transparent overflow-hidden relative">
@@ -19,16 +17,12 @@ const Experience: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <MaskedHeading
-              element="h2"
-              text={t("projectsSection.subtitle", "Selected Projects")}
-              className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2 justify-center"
-            />
-            <MaskedHeading
-              element="h3"
-              text={t("projectsSection.title", "Projects")}
-              className="text-3xl font-bold text-slate-900 dark:text-slate-100 justify-center"
-            />
+            <h2 className="text-sm font-bold tracking-wider text-primary-600 uppercase mb-2 justify-center">
+              {t("projectsSection.subtitle", "Selected Projects")}
+            </h2>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-slate-100 justify-center">
+              {t("projectsSection.title", "Projects")}
+            </h3>
           </div>
 
           <div className="space-y-12 relative">

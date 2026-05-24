@@ -7,17 +7,14 @@ import {
   ShieldCheck,
   CheckCircle,
 } from "lucide-react";
-import { certifications } from "../data/certifications";
-import { certificationsVi } from "../data/certificationsVi";
 import { useTranslation } from "react-i18next";
+import { useLocalizedCertifications } from "../hooks/useLocalizedData";
 
 const CertificationDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
-  const currentCertifications =
-    i18n.language === "vi" ? certificationsVi : certifications;
-  const cert = currentCertifications.find((c) => c.id === id);
+  const { t } = useTranslation();
+  const cert = useLocalizedCertifications().find((c) => c.id === id);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   useEffect(() => {
